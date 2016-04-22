@@ -21,6 +21,18 @@ export default class SignIn extends Component {
 
   }
 
+  _signIn() {
+  	GoogleSignin.signIn()
+		.then((user) => {
+  		console.log(user);
+  		this.setState({user: user});
+		})
+		.catch((err) => {
+  		console.log('WRONG SIGNIN', err);
+		})
+		.done();
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,7 +43,7 @@ export default class SignIn extends Component {
           style={{width: 312, height: 48}}
           size={GoogleSigninButton.Size.Standard}
           color={GoogleSigninButton.Color.Dark}
-          // onPress={this._signIn.bind(this)}
+          onPress={this._signIn.bind(this)}
         />
       </View>
     );
@@ -50,5 +62,5 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: 'orange',
   },
-  
+
 });
