@@ -8,43 +8,25 @@ import React, {
 } from 'react-native';
 
 import {Icons} from './icons.ios';
+var styles = require('./styles.ios')
 
 export default class Awaiting extends Component {
   render() {
     return (
-      <View style={styles.container}>
+     <View>
+      <View style={styles.headlineContainer}>
         <Text style={styles.headline}>
           Awaiting Challengers
         </Text>
+      </View>
+      <View style={styles.awaitingMapContainer}>
         <MapView style={styles.map}
-          style={styles.map}
           showsUserLocation={true}
           followsUserLocation={true}
         />
-      <Icons />
       </View>
+      <Icons />
+     </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  headline: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-});
-
