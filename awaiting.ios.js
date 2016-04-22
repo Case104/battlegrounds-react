@@ -7,13 +7,12 @@ import React, {
   View
 } from 'react-native';
 
-
 class awaiting extends Component {
   render() {
     return (
       <View>
         <Text styles={styles.headline}>
-          Awaiting view
+          Awaiting Challengers
         </Text>
         <MapView
           showsUserLocation={true}

@@ -7,7 +7,6 @@ import React, {
   View
 } from 'react-native';
 
-
 class icons extends Component {
   render() {
     return (
