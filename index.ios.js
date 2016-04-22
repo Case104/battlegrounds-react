@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, {
   AppRegistry,
   Component,
@@ -42,9 +36,6 @@ class battlegroundReact extends Component {
   renderAwaiting(){
   }
 
-}
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -62,6 +53,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  title: {
+    fontSize: 40,
+    color: 'orange',
+  },
+
 });
 
 AppRegistry.registerComponent('battlegroundReact', () => battlegroundReact);
