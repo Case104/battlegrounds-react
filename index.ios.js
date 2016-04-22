@@ -9,7 +9,6 @@ import React, {
 
 import SignIn from './signin.ios';
 
-import {Awaiting} from './awaiting.ios';
 var styles = require('./styles.ios')
 
 class battlegroundReact extends Component {
@@ -17,7 +16,6 @@ class battlegroundReact extends Component {
     super();
     this.state = {};
   }
-
   render() {
     return (
      <NavigatorIOS style={{flex: 1}}
