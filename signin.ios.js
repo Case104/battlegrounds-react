@@ -8,8 +8,7 @@ import React, {
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
-
-class signIn extends Component {
+export default class SignIn extends Component {
 
 	constructor() {
     super();
@@ -21,10 +20,6 @@ class signIn extends Component {
   componentDidMount(){
 
   }
-
-  
-
-
 
   render() {
     return (
@@ -42,3 +37,18 @@ class signIn extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  title: {
+    fontSize: 40,
+    color: 'orange',
+  },
+  
+});
