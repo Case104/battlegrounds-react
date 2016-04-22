@@ -30,10 +30,8 @@ class battlegroundReact extends Component {
         <Awaiting />
       </View>
     )
-
     }
   }
-
   renderAwaiting(){
   }
 }
