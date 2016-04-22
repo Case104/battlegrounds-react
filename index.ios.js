@@ -7,6 +7,7 @@ import React, {
 } from 'react-native';
 
 import {Awaiting} from './awaiting.ios';
+var styles = require('./styles.ios')
 
 class battlegroundReact extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class battlegroundReact extends Component {
   render() {
     if (this.state.something) {
       return (
-        <View style={styles.container}>
+        <View>
           <Text style={styles.welcome} onPress={this.renderAwaiting}>
             Click for Awaiting
           </Text>
@@ -36,29 +37,5 @@ class battlegroundReact extends Component {
   renderAwaiting(){
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  title: {
-    fontSize: 40,
-    color: 'orange',
-  },
-
-});
 
 AppRegistry.registerComponent('battlegroundReact', () => battlegroundReact);

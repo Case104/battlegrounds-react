@@ -7,14 +7,16 @@ import React, {
   View
 } from 'react-native';
 
+var styles = require('./styles.ios')
+
 export class Icons extends Component {
   render() {
     return (
-      <View>
-        <Text>
+      <View style={styles.iconContainer}>
+        <Text style={styles.iconProfile}>
           Profile
         </Text>
-        <Text>
+        <Text style={styles.iconLeaderboard}>
           Leaderboard
         </Text>
       </View>
