@@ -16,7 +16,6 @@ class battlegroundReact extends Component {
     super();
     this.state = {};
   }
-
   render() {
     return (
      <NavigatorIOS style={{flex: 1}}

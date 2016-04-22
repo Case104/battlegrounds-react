@@ -7,9 +7,6 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  headlineContainer: {
-
-  },
   headline: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,7 +30,8 @@ module.exports = StyleSheet.create({
   iconHome: {
   },
   iconHelp: {
-
+  },
+  userAvatar: {
   }
 })
 
