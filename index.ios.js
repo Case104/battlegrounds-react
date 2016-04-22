@@ -35,6 +35,7 @@ class battlegroundReact extends Component {
 
   renderAwaiting(){
   }
+}
 
 const styles = StyleSheet.create({
   container: {
