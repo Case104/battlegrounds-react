@@ -10,7 +10,7 @@ import React, {
 import {Icons} from './icons.ios';
 var styles = require('./styles.ios')
 
-export class Awaiting extends Component {
+export default class Awaiting extends Component {
   render() {
     return (
      <View>

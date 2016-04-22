@@ -1,12 +1,14 @@
 import React, {
   AppRegistry,
   Component,
+  NavigatorIOS,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-import {Awaiting} from './awaiting.ios';
+import SignIn from './signin.ios';
+
 var styles = require('./styles.ios')
 
 class battlegroundReact extends Component {
@@ -15,24 +17,14 @@ class battlegroundReact extends Component {
     this.state = {};
   }
   render() {
-    if (this.state.something) {
-      return (
-        <View>
-          <Text style={styles.welcome} onPress={this.renderAwaiting}>
-            Click for Awaiting
-          </Text>
-
-        </View>
-      );
-    } else  {
-      return (
-      <View>
-        <Awaiting />
-      </View>
-    )
-    }
-  }
-  renderAwaiting(){
+    return (
+     <NavigatorIOS style={{flex: 1}}
+        initialRoute={{
+          component: SignIn,
+          title: 'Sign In or Sign Up',
+        }}
+      />
+    );
   }
 }
 
