@@ -7,7 +7,7 @@ import React, {
   View
 } from 'react-native';
 
-class icons extends Component {
+export class Icons extends Component {
   render() {
     return (
       <View>
@@ -21,5 +21,3 @@ class icons extends Component {
     );
   }
 }
-
-AppRegistry.registerComponent('battlegroundReact', () => battlegroundReact);
