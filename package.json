@@ -9,7 +9,11 @@
     "react": "^0.14.8",
     "react-native": "^0.24.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-native-button": "^1.4.2"
+=======
+    "react-native-google-signin": "^0.4.3"
+>>>>>>> master
 =======
     "react-native-google-signin": "^0.4.3"
 >>>>>>> master
