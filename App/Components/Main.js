@@ -1,10 +1,10 @@
-var React = require('react-native');
-
-var {
-	View,
-	Text,
-	StyleSheet
-} = React;
+import React, {
+  Component,
+  NavigatorIOS,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 var styles = StyleSheet.create({
 	mainContainer: {
@@ -16,12 +16,25 @@ var styles = StyleSheet.create({
 	},
 })
 
-class Main extends React.Component{
+export default class Main extends Component {
+
+	constructor(props){
+		super(props);
+		this.state = {
+			isLoading: false,
+			error: false,
+		}
+	}
+
+	renderSignUp(){
+		console.log(this.props)
+	}
+
 	render(){
-		<View style={styles.mainContainer}>
-			<Text>Testing the router</Text>
-		</View>
+		return(
+			<View style={styles.mainContainer}>
+				<Text>test</Text>
+			</View>
+		)
 	}
 };
-
-module.exports = Main;

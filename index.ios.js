@@ -9,10 +9,14 @@ import React, {
 
 import SignIn from './signin.ios'; 
 import Main from './App/Components/Main.js';
+import Profile from './App/Components/Profile.js';
+import Button from './App/Components/Button.js';
+
 
 var styles = StyleSheet.create({
-  container: {
+  container:{
     flex: 1,
+    backgroundColor: '#111111'
   },
 });
 
@@ -20,12 +24,12 @@ class battlegroundReact extends Component {
 
   render() {
     return (
-      style={styles.container}
       <NavigatorIOS
+        style={styles.container}
         initialRoute={{
           title: 'Battlegrounds',
-          component: Main
-        }}
+          component: Button
+        }} 
       />
     );
   }
