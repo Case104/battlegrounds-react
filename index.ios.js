@@ -7,6 +7,7 @@ import React, {
   View
 } from 'react-native';
 
+
 require('react-native-background-geolocation')
 import SignIn from './signin.ios';
 
