@@ -13,11 +13,14 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+<<<<<<< HEAD
 
 // HEADLINE STYLINGS
   headlineContainer: {
 
   },
+=======
+>>>>>>> master
   headline: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -79,6 +82,7 @@ module.exports = StyleSheet.create({
   iconHome: {
   },
   iconHelp: {
+<<<<<<< HEAD
 
   },
   // BOTTOM NAVIGATION STYLINGS
@@ -122,6 +126,10 @@ module.exports = StyleSheet.create({
     marginTop:50,
     marginBottom:20,
 
+=======
+  },
+  userAvatar: {
+>>>>>>> master
   }
 
 
