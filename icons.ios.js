@@ -4,7 +4,8 @@ import React, {
   StyleSheet,
   Text,
   Image,
-  View
+  View,
+  TouchableHighlight
 } from 'react-native';
 
 var styles = require('./styles.ios')
@@ -22,4 +23,36 @@ export class Icons extends Component {
       </View>
     );
   }
+}
+
+export class SquareButton extends Component {
+  handleSubmit(){
+
+  } 
+    render() {
+    return (
+      <TouchableHighlight
+        style={styles.squareButton}
+        onPress={this.handleSubmit}
+        underlayColor='white'>
+          <Text style={styles.buttonText}>X</Text>
+      </TouchableHighlight>
+    );
+  } 
+}
+
+export class CircleButton extends Component{
+  handleSubmit(){
+
+   } 
+  render() {
+    return (
+      <TouchableHighlight
+        style={styles.circleButton}
+        onPress={this.handleSubmit}
+        underlayColor='white'>
+          <Text style={styles.buttonText}>Click</Text>
+      </TouchableHighlight>
+    );
+  } 
 }

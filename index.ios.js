@@ -8,7 +8,7 @@ import React, {
   View
 } from 'react-native';
 
-import SignIn from './signin.ios';
+import {SignIn} from './signin.ios';
 
 import {Awaiting} from './awaiting.ios';
 var styles = require('./styles.ios')
