@@ -8,20 +8,23 @@ import React, {
 } from 'react-native';
 
 import SignIn from './signin.ios'; 
+import Main from './App/Components/Main.js';
 
-var styles = require('./styles.ios')
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 class battlegroundReact extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+
   render() {
     return (
-     <NavigatorIOS style={{flex: 1}}
+      style={styles.container}
+      <NavigatorIOS
         initialRoute={{
-          component: SignIn,
-          title: 'Sign In or Sign Up',
+          title: 'Battlegrounds',
+          component: Main
         }}
       />
     );
