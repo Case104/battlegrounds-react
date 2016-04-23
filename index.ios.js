@@ -7,14 +7,16 @@ import React, {
   View
 } from 'react-native';
 
-import SignIn from './signin.ios'; 
+import SignIn from './signin.ios';
 
 var styles = require('./styles.ios')
+var BackgroundLocation = require('react-native-background-geolocation')
 
 class battlegroundReact extends Component {
   constructor() {
     super();
     this.state = {};
+    BackgroundLocation.configure({})
   }
   render() {
     return (
