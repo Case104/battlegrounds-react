@@ -7,9 +7,6 @@ import React, {
 } from 'react-native';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
-import Main from './App/Components/Main.js';
-import api from './App/Utils/api.js';
-
 
 export default class SignIn extends Component {
 
@@ -33,9 +30,9 @@ export default class SignIn extends Component {
 		.catch((err) => {
   		console.log('WRONG SIGNIN', err);
 		})
-		.done(
-      api.postUsers()
-    )
+		.done(this.props.navigator.push({
+      component: Main
+    }))
   }
 
 
