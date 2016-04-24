@@ -8,11 +8,9 @@ import React, {
   View
 } from 'react-native';
 
-<<<<<<< HEAD
-import {SignIn} from './signin.ios';
-=======
+
 import SignIn from './signin.ios'; 
->>>>>>> master
+
 
 var styles = require('./styles.ios')
 
