@@ -7,10 +7,12 @@ import React, {
   View
 } from 'react-native';
 
-import {BackgroundGeolocation} from 'react-native-background-geolocation';
+// import BackgroundGeolocation from 'react-native-background-geolocation';
 import SignIn from './App/Components/SignIn.js'; 
 var API_URL = 'http://localhost:3000'
-var styles = require('./App/Utils/styles.js')
+var styles = require('./App/Utils/styles.js');
+
+var BackgroundGeolocation = require('react-native-background-geolocation');
 
 class battlegroundReact extends Component {
 
@@ -20,6 +22,7 @@ class battlegroundReact extends Component {
       message: '',
       availableForBattle: false,
     }
+
     BackgroundGeolocation.configure({
       desiredAccuracy: 0,
       stationaryRadius: 50,
@@ -40,7 +43,7 @@ class battlegroundReact extends Component {
       stopOnTerminate: false,
       startOnBoot: true,
       // HTTP / SQLite config
-      url: 'http://posttestserver.com/post.php?dir=cordova-background-geolocation',
+      url: 'http://posttestserver.com/post.php?dir=joncase',
       batchSync: false,
       autoSync: true,
       maxDaysToPersist: 1,
@@ -77,24 +80,24 @@ class battlegroundReact extends Component {
     BackgroundGeolocation.on('error', function(error) {
       var type = error.type;
       var code = error.code;
-      alert(type + " Error: " + code);
+      console.log(type + " Error: " + code);
     });
 
     BackgroundGeolocation.on('motionchange', function(location) {
         this.setState({message: location});
-        // console.log('- [js]motionchanged: ', location);
+        console.log('- [js]motionchanged: ', location);
     }.bind(this));
 
     BackgroundGeolocation.start(function() {
-      // console.log('- [js] BackgroundGeolocation started successfully');
+      console.log('- [js] BackgroundGeolocation started successfully');
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
-        // console.log('- [js] BackgroundGeolocation received current position: ', location);
+        console.log('- [js] BackgroundGeolocation received current position: ', location);
       }, function(error) {
-        alert("Location error: " + error);
+        console.log("Location error: " + error);
       });
     });
   }
-  
+
   render() {
     return (
       <NavigatorIOS
