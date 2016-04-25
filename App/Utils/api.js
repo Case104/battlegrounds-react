@@ -3,7 +3,7 @@ module.exports = api = {
 		var url = 'http://localhost:3000/users'
 		var details = {
 			method: 'POST',
-			body: userData
+			body: JSON.stringify(userData)
 		}
 		return fetch(url, details).then((response) => response.json());
 	}

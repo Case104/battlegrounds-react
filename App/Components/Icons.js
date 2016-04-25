@@ -7,7 +7,7 @@ import React, {
   View
 } from 'react-native';
 
-var styles = require('./styles.ios')
+var styles = require('../Utils/styles.js')
 
 export class Icons extends Component {
   render() {
