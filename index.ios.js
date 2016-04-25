@@ -1,4 +1,3 @@
-
 import React, {
   AppRegistry,
   Component,
@@ -8,22 +7,22 @@ import React, {
   View
 } from 'react-native';
 
-
-import SignIn from './signin.ios';
-
-var styles = require('./styles.ios')
-var BackgroundGeolocation = require('react-native-background-geolocation');
+// import BackgroundGeolocation from 'react-native-background-geolocation';
+import SignIn from './App/Components/SignIn.js'; 
 var API_URL = 'http://localhost:3000'
+var styles = require('./App/Utils/styles.js');
 
-console.log(BackgroundGeolocation)
+var BackgroundGeolocation = require('react-native-background-geolocation');
 
 class battlegroundReact extends Component {
+
   constructor() {
     super();
     this.state = {
       message: '',
       availableForBattle: false,
     }
+
     BackgroundGeolocation.configure({
       desiredAccuracy: 0,
       stationaryRadius: 50,
@@ -44,7 +43,7 @@ class battlegroundReact extends Component {
       stopOnTerminate: false,
       startOnBoot: true,
       // HTTP / SQLite config
-      url: 'http://posttestserver.com/post.php?dir=cordova-background-geolocation',
+      url: 'http://posttestserver.com/post.php?dir=joncase',
       batchSync: false,
       autoSync: true,
       maxDaysToPersist: 1,
@@ -55,6 +54,7 @@ class battlegroundReact extends Component {
         "auth_token": "maybe_your_server_authenticates_via_token_YES?"
       },
     });
+
     BackgroundGeolocation.on('location', function(location) {
       // Post geolocation data
       fetch(API_URL + '/geolocations', {
@@ -73,39 +73,43 @@ class battlegroundReact extends Component {
       .then((responseText) => {
         // console.log(responseText)
       })
-
       this.setState({message: location});
       console.log('- [js]location: ', location);
     }.bind(this));
+
     BackgroundGeolocation.on('error', function(error) {
       var type = error.type;
       var code = error.code;
-      alert(type + " Error: " + code);
+      console.log(type + " Error: " + code);
     });
+
     BackgroundGeolocation.on('motionchange', function(location) {
         this.setState({message: location});
-        // console.log('- [js]motionchanged: ', location);
+        console.log('- [js]motionchanged: ', location);
     }.bind(this));
 
     BackgroundGeolocation.start(function() {
-      // console.log('- [js] BackgroundGeolocation started successfully');
+      console.log('- [js] BackgroundGeolocation started successfully');
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
-        // console.log('- [js] BackgroundGeolocation received current position: ', location);
+        console.log('- [js] BackgroundGeolocation received current position: ', location);
       }, function(error) {
-        alert("Location error: " + error);
+        console.log("Location error: " + error);
       });
     });
   }
+
   render() {
     return (
-     <NavigatorIOS style={{flex: 1}}
+      <NavigatorIOS
+        style={styles.main}
         initialRoute={{
-          component: SignIn,
-          title: 'Sign In or Sign Up',
-        }}
+          title: 'Battlegrounds',
+          component: SignIn
+        }} 
       />
     );
   }
+
 };
 
 AppRegistry.registerComponent('battlegroundReact', () => battlegroundReact);

@@ -7,30 +7,41 @@ import React, {
 } from 'react-native';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import api from '../Utils/api.js';
+import Awaiting from './Awaiting.js'
+
 
 export default class SignIn extends Component {
 
-	constructor() {
+  constructor() {
     super();
     GoogleSignin.configure({
       iosClientId: "970905254554-jvucq5466862hiv6qkpjdgqevg3l57em.apps.googleusercontent.com", // only for iOS
-  	});    
+    });    
   }
 
   componentDidMount(){
 
   }
 
+  navToAwaiting(){
+    this.props.navigator.push({
+      component: Awaiting
+    })
+  }
+
   _signIn() {
-  	GoogleSignin.signIn()
-		.then((user) => {
-  		console.log(user);
-  		this.setState({user: user});
-		})
-		.catch((err) => {
-  		console.log('WRONG SIGNIN', err);
-		})
-		.done();
+    GoogleSignin.signIn()
+    .then((user) => {
+      console.log('this is user', user)
+      api.postUsers(user)
+    })
+    .then(() => this.navToAwaiting()
+    )
+    .catch((err) => {
+      console.log('WRONG SIGNIN', err);
+    })
+    .done()
   }
 
   render() {

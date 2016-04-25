@@ -8,7 +8,7 @@ import React, {
   TouchableHighlight
 } from 'react-native';
 
-var styles = require('./styles.ios')
+var styles = require('../Utils/styles.js')
 
 export class Icons extends Component {
   render() {
