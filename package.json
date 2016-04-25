@@ -9,6 +9,7 @@
     "react": "^0.14.8",
     "react-native": "^0.24.1",
     "react-native-google-signin": "^0.4.3",
-    "react-native-mapbox-gl": "^4.1.0"
+    "react-native-mapbox-gl": "^4.1.0",
+    "react-native-motion-manager": "0.0.6"
   }
 }
