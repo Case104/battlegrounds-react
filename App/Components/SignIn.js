@@ -20,10 +20,6 @@ export default class SignIn extends Component {
     });    
   }
 
-  componentDidMount(){
-
-  }
-
   navToAwaiting(){
     this.props.navigator.push({
       component: Awaiting
