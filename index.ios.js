@@ -1,4 +1,3 @@
-
 import React, {
   AppRegistry,
   Component,
@@ -8,10 +7,10 @@ import React, {
   View
 } from 'react-native';
 
+import {BackgroundGeolocation} from 'react-native-background-geolocation';
 import SignIn from './App/Components/SignIn.js'; 
 var API_URL = 'http://localhost:3000'
 var styles = require('./App/Utils/styles.js')
-
 
 class battlegroundReact extends Component {
 
@@ -52,6 +51,7 @@ class battlegroundReact extends Component {
         "auth_token": "maybe_your_server_authenticates_via_token_YES?"
       },
     });
+
     BackgroundGeolocation.on('location', function(location) {
       // Post geolocation data
       fetch(API_URL + '/geolocations', {
@@ -70,15 +70,16 @@ class battlegroundReact extends Component {
       .then((responseText) => {
         // console.log(responseText)
       })
-
       this.setState({message: location});
       console.log('- [js]location: ', location);
     }.bind(this));
+
     BackgroundGeolocation.on('error', function(error) {
       var type = error.type;
       var code = error.code;
       alert(type + " Error: " + code);
     });
+
     BackgroundGeolocation.on('motionchange', function(location) {
         this.setState({message: location});
         // console.log('- [js]motionchanged: ', location);
@@ -93,10 +94,11 @@ class battlegroundReact extends Component {
       });
     });
   }
+  
   render() {
     return (
       <NavigatorIOS
-        style={styles.container}
+        style={styles.main}
         initialRoute={{
           title: 'Battlegrounds',
           component: SignIn
