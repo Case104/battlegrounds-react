@@ -10,13 +10,17 @@ import React, {
 import SignIn from './signin.ios';
 var styles = require('./styles.ios')
 var BackgroundGeolocation = require('react-native-background-geolocation');
+var API_URL = 'http://localhost:3000'
 
 console.log(BackgroundGeolocation)
 
 class battlegroundReact extends Component {
   constructor() {
     super();
-    this.state = {message: ''}
+    this.state = {
+      message: '',
+      availableForBattle: false,
+    }
     BackgroundGeolocation.configure({
       desiredAccuracy: 0,
       stationaryRadius: 50,
@@ -49,8 +53,26 @@ class battlegroundReact extends Component {
       },
     });
     BackgroundGeolocation.on('location', function(location) {
-      this.setState({message: JSON.stringify(location)});
-      console.log('- [js]location: ', JSON.stringify(location));
+      // Post geolocation data
+      fetch(API_URL + '/geolocations', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          geolocation: location,
+          // Determine which property is available to use for user
+          email: 'jpcase104@gmail.com',
+        })
+      })
+      .then((response) => response.text())
+      .then((responseText) => {
+        // console.log(responseText)
+      })
+
+      this.setState({message: location});
+      console.log('- [js]location: ', location);
     }.bind(this));
     BackgroundGeolocation.on('error', function(error) {
       var type = error.type;
@@ -58,14 +80,14 @@ class battlegroundReact extends Component {
       alert(type + " Error: " + code);
     });
     BackgroundGeolocation.on('motionchange', function(location) {
-        this.setState({message: JSON.stringify(location)});
-        console.log('- [js]motionchanged: ', JSON.stringify(location));
+        this.setState({message: location});
+        // console.log('- [js]motionchanged: ', location);
     }.bind(this));
 
     BackgroundGeolocation.start(function() {
-      console.log('- [js] BackgroundGeolocation started successfully');
+      // console.log('- [js] BackgroundGeolocation started successfully');
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
-        console.log('- [js] BackgroundGeolocation received current position: ', JSON.stringify(location));
+        // console.log('- [js] BackgroundGeolocation received current position: ', location);
       }, function(error) {
         alert("Location error: " + error);
       });
