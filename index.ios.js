@@ -16,7 +16,6 @@ class battlegroundReact extends Component {
   constructor() {
     super();
     this.state = {
-      message: '',
     }
     BackgroundGeolocation.start(function() {
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
@@ -34,19 +33,17 @@ class battlegroundReact extends Component {
         },
         body: JSON.stringify({
           geolocation: location,
+          // TODO Determine how to set user here
           email: 'jpcase104@gmail.com',
         })
       })
-      .then((response) => JSON.stringify(response))
+      .then((response) => response.json())
       .then((responseText) => {
+        // TODO Display BattlePrompt component with json response as props
         console.log(responseText);
       })
-      this.setState({message: location});
-      console.log('- [js]location: ', location);
-    }
-    .bind(this));
+    }.bind(this));
   }
-
   render() {
     return (
       <NavigatorIOS
