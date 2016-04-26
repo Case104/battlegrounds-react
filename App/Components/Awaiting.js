@@ -36,6 +36,7 @@ export default class Awaiting extends Component {
       })
       .then((response) => response.json())
       .then((battle) => {
+        console.log('battle', battle)
         this.props.navigator.push({
           component: BattlePrompt,
           passProps: {

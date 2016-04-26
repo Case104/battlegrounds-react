@@ -18,21 +18,9 @@ var styles = StyleSheet.create({
 
 export default class Main extends Component {
 
-	constructor(props){
-		super(props);
-		this.state = {
-			isLoading: false,
-			error: false,
-		}
-	}
-
-	renderSignUp(){
-		console.log(this.props)
-	}
-
 	render(){
 		return(
-			<View style={styles.mainContainer}>
+			<View style={styles.container}>
 				<Text>test</Text>
 			</View>
 		)

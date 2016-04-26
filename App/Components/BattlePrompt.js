@@ -4,18 +4,20 @@ import React, {
   Text,
   Image,
   TouchableHighlight,
-  View
+  View,
 } from 'react-native';
 
-import styles from '../Utils/styles';
+import styles from '../Utils/styles.js';
+import api from '../Utils/api.js';
+import Awaiting from './Awaiting.js';
+import Main from './Main.js'
 
 export default class BattlePrompt extends Component {
 
   handleAccept(){
     this.props.navigator.push({
-      component: Task,
+      component: Main,
       passProps: {
-        thing: 'thing',
         user: this.props.user,
         battle: this.props.battle,
       }
@@ -26,30 +28,37 @@ export default class BattlePrompt extends Component {
     this.props.navigator.push({
       component: Awaiting,
       passProps: {
-        thing: 'thing',
         user: this.props.user,
         battle: this.props.battle,
       }
     })
   }
 
+  _denyBattle(){
+    api.denyBattle(this.props.battle)
+    .then(() => this.handleDecline()
+    )
+    .catch((err) => {
+      console.log('error in deny', err)
+    })
+    .done()
+  }
 
   render() {
-    console.log('battleprompt', this.props)
     return (
       <View style={styles.container}>
 
       <TouchableHighlight
-          value={this.props.user.email}
-          onPress={this.handleDecline.bind(this)}>
+        value={this.props.user.email}
+        onPress={this._denyBattle.bind(this)}>
         <Text>Decline</Text>
+      </TouchableHighlight>
 
-        </TouchableHighlight>
-           <TouchableHighlight
-          value={this.props.user.email}
-          onPress={this.handleAccept.bind(this)}>
+      <TouchableHighlight
+        value={this.props.user.email}
+        onPress={this.handleAccept.bind(this)}>
         <Text>Accept</Text>
-        </TouchableHighlight>
+      </TouchableHighlight>
 
       </View>
     );
