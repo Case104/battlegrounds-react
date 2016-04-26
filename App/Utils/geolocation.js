@@ -15,17 +15,6 @@ function geolocationSetup() {
     stopTimeout: 2,
     activityType: 'AutomotiveNavigation',
     debug: true,
-    // HTTP / SQLite config
-    url: 'http://posttestserver.com/post.php?dir=cordova-background-geolocation',
-    batchSync: false,
-    autoSync: true,
-    maxDaysToPersist: 1,
-    headers: {
-      "X-FOO": "bar"
-    },
-    params: {
-      "auth_token": "maybe_your_server_authenticates_via_token_YES?"
-    },
   });
 }
 

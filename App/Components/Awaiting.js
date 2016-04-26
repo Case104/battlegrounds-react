@@ -8,7 +8,7 @@ import React, {
 
 import BattlePrompt from './BattlePrompt';
 import BackgroundGeolocation from 'react-native-background-geolocation';
-var API_URL = 'http://localhost:3000'
+import api from '../Utils/api.js';
 var styles = require('../Utils/styles.js')
 
 export default class Awaiting extends Component {
@@ -20,21 +20,10 @@ export default class Awaiting extends Component {
       }, function(error) {
         console.log("Location error: " + error);
       });
-    });
+    })
 
     BackgroundGeolocation.on('location', (location) => {
-      fetch(API_URL + '/geolocations', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          geolocation: location,
-          email: this.props.user.email
-        })
-      })
-      .then((response) => response.json())
+      api.postGeolocations(location, this.props.user.email)
       .then((battle) => {
         console.log('battle', battle)
         this.props.navigator.push({
@@ -43,7 +32,7 @@ export default class Awaiting extends Component {
             user: this.props.user,
             battle: battle
           }
-        });
+        }).done();
       })
     });
   }
