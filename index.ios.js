@@ -9,6 +9,7 @@ import React, {
 
 import BackgroundGeolocation from 'react-native-background-geolocation';
 import SignIn from './App/Components/SignIn.js';
+// change this later
 var styles = require('./App/Utils/styles.js');
 
 class battlegroundReact extends Component {
