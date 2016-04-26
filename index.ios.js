@@ -10,6 +10,7 @@ import React, {
 import BackgroundGeolocation from 'react-native-background-geolocation';
 
 import SignIn from './App/Components/SignIn.js';
+import BattlePrompt from './App/Components/BattlePrompt.js';
 var API_URL = 'http://localhost:3000'
 var styles = require('./App/Utils/styles.js');
 
@@ -17,6 +18,7 @@ class battlegroundReact extends Component {
   constructor() {
     super();
     this.state = {
+      inBattle: false,
     }
     BackgroundGeolocation.start(function() {
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
@@ -40,8 +42,7 @@ class battlegroundReact extends Component {
       })
       .then((response) => response.json())
       .then((responseText) => {
-        // TODO Display BattlePrompt component with json response as props
-        console.log(responseText);
+        console.log(responseText)
       })
     }.bind(this));
   }
@@ -52,7 +53,7 @@ class battlegroundReact extends Component {
         style={styles.main}
         initialRoute={{
           title: 'Battlegrounds',
-          component: SignIn
+          component: SignIn,
         }}
       />
     );
