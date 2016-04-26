@@ -33,8 +33,9 @@ export default class Awaiting extends Component {
             user: this.props.user,
             battle: battle
           }
-        }).done();
+        })
       })
+      .done()
     });
   }
 
