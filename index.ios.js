@@ -8,6 +8,7 @@ import React, {
 } from 'react-native';
 
 import BackgroundGeolocation from 'react-native-background-geolocation';
+
 import SignIn from './App/Components/SignIn.js';
 import BattlePrompt from './App/Components/BattlePrompt.js';
 var API_URL = 'http://localhost:3000'
@@ -45,6 +46,7 @@ class battlegroundReact extends Component {
       })
     }.bind(this));
   }
+
   render() {
     return (
       <NavigatorIOS
