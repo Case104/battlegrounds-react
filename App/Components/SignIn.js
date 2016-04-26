@@ -23,14 +23,14 @@ export default class SignIn extends Component {
 
   navToAwaiting(){
     this.props.navigator.push({
-      component: Awaiting
+      component: Awaiting,
+      passProps: {user: GoogleSignin.currentUser()},
     })
   }
 
   _signIn() {
     GoogleSignin.signIn()
     .then((user) => {
-      console.log('this is user', user)
       api.postUsers(user)
     })
     .then(() => this.navToAwaiting()

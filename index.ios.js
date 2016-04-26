@@ -3,16 +3,15 @@ import React, {
   Component,
   NavigatorIOS,
   StyleSheet,
-  Text,
-  Image,
-  View
+  View,
 } from 'react-native';
-import Task from './App/Components/Task.js'
+
+import BackgroundGeolocation from 'react-native-background-geolocation';
 import SignIn from './App/Components/SignIn.js';
-import BattlePrompt from './App/Components/BattlePrompt.js';
 var styles = require('./App/Utils/styles.js');
 
 class battlegroundReact extends Component {
+
   render() {
     return (
         <NavigatorIOS

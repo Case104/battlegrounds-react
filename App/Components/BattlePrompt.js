@@ -1,30 +1,65 @@
 import React, {
-  AppRegistry,
   Component,
   StyleSheet,
   Text,
   Image,
-  View
+  TouchableHighlight,
+  View,
 } from 'react-native';
 
-var styles = require('../Utils/styles.js')
+import styles from '../Utils/styles.js';
+import api from '../Utils/api.js';
+import Awaiting from './Awaiting.js';
+import Main from './Main.js'
 
-export class BattlePrompt extends Component {
+export default class BattlePrompt extends Component {
+
+  handleAccept(){
+    this.props.navigator.push({
+      component: Main,
+      passProps: {
+        user: this.props.user,
+        battle: this.props.battle,
+      }
+    })
+  }
+
+  handleDecline(){
+    this.props.navigator.push({
+      component: Awaiting,
+      passProps: {
+        user: this.props.user,
+        battle: this.props.battle,
+      }
+    })
+  }
+
+  _denyBattle(){
+    api.denyBattle(this.props.battle)
+    .then(() => this.handleDecline()
+    )
+    .catch((err) => {
+      console.log('error in deny', err)
+    })
+    .done()
+  }
+
   render() {
     return (
-      <View>
-        <Text style={styles.headline}>
-          BATTLE
-        </Text>
-          <View style={styles.userAvatar}>
-            // <Image />
-          </View>
-        <Text style={styles.headline}>
-          VS
-        </Text>
-          <View style={styles.userAvatar}>
-            // <Image />
-          </View>
+      <View style={styles.container}>
+
+      <TouchableHighlight
+        value={this.props.user.email}
+        onPress={this._denyBattle.bind(this)}>
+        <Text>Decline</Text>
+      </TouchableHighlight>
+
+      <TouchableHighlight
+        value={this.props.user.email}
+        onPress={this.handleAccept.bind(this)}>
+        <Text>Accept</Text>
+      </TouchableHighlight>
+
       </View>
     );
   }
