@@ -28,23 +28,25 @@ export class Icons extends Component {
 export class SquareButton extends Component {
   handleSubmit(){
 
-  } 
+  }
     render() {
     return (
-      <TouchableHighlight
-        style={styles.squareButton}
-        onPress={this.handleSubmit}
-        underlayColor='white'>
+      // <Image source={require('../Utils/Images/battleGround.png')} style={styles.mainBackDrop}>
+      <TouchableHighlight style={styles.squareButton} underlayColor='white'  onPress={this.handleSubmit}>
+
+
+
           <Text style={styles.buttonText}>X</Text>
       </TouchableHighlight>
+      // </Image>
     );
-  } 
+  }
 }
 
 export class CircleButton extends Component{
   handleSubmit(){
 
-   } 
+   }
   render() {
     return (
       <TouchableHighlight
@@ -54,5 +56,5 @@ export class CircleButton extends Component{
           <Text style={styles.buttonText}>Click</Text>
       </TouchableHighlight>
     );
-  } 
+  }
 }

@@ -17,13 +17,13 @@ export class BattlePrompt extends Component {
           BATTLE
         </Text>
           <View style={styles.userAvatar}>
-            <Image />
+            // <Image />
           </View>
         <Text style={styles.headline}>
           VS
         </Text>
           <View style={styles.userAvatar}>
-            <Image />
+            // <Image />
           </View>
       </View>
     );

@@ -3,9 +3,10 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
-
+var styles = require('../Utils/styles.js');
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import api from '../Utils/api.js';
 import Awaiting from './Awaiting.js'
@@ -17,7 +18,7 @@ export default class SignIn extends Component {
     super();
     GoogleSignin.configure({
       iosClientId: "970905254554-jvucq5466862hiv6qkpjdgqevg3l57em.apps.googleusercontent.com", // only for iOS
-    });    
+    });
   }
 
   navToAwaiting(){
@@ -42,32 +43,34 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-      <Text style={styles.title}>
-        Battlegrounds
-      </Text>
-        <GoogleSigninButton
-          style={{width: 312, height: 48}}
-          size={GoogleSigninButton.Size.Standard}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this._signIn.bind(this)}
-        />
-      </View>
+      <Image source={require('../Utils/Images/battleGround.png')} style={styles.mainBackDrop}>
+        <Text style={styles.title}>
+          Battlegrounds
+        </Text>
+        <View style={styles.signInWrapper}>
+          <GoogleSigninButton
+            style={{width: 312, height: 48}}
+            size={GoogleSigninButton.Size.Standard}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={this._signIn.bind(this)}
+            />
+        </View>
+      </Image>
     );
   }
 }
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
 
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize: 40,
-    color: 'orange',
-  },
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   title: {
+//     fontSize: 40,
+//     color: 'orange',
+//   },
 
-});
+// });

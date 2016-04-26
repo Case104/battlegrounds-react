@@ -11,30 +11,58 @@ module.exports = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'rgb(41,178,190)',
+  },
+  signInContainer: {
+    flex:1,
+    alignItems:'stretch',
+    backgroundColor: '#29B2BE'
+  },
+  signInWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
 // HEADLINE STYLINGS
   headlineContainer: {
-
+    // flex: 1,
+    alignItems: 'center',
+    paddingBottom: 30,
+    // marginTop: 100,
   },
   headline: {
     justifyContent: 'center',
     alignItems: 'center',
+    fontSize:24,
+    color: 'white',
+    fontWeight: 'bold',
   },
-  
-// MAP STYLINGS
-  awaitingMapContainer: {
-    alignItems: 'center'
-  },
-  map: {
-    flex: 1,
-    height: 100,
-    width: 100
+    title: {
+    fontSize: 40,
+    color: 'white',
   },
 
-  
+// MAP STYLINGS
+  awaitingMapContainer: {
+    // alignItems: 'center',
+    // justifyContent: 'center'
+  },
+  map: {
+    // flex: 1,
+    height: 200,
+    width:200,
+    borderRadius: 100,
+    // width: 100
+  },
+
+
   // BUTTON AND ICON STYLINGS
+  icon: {
+    flex:1,
+    width:50,
+    height:50
+  },
   squareButton: {
     backgroundColor:'#E1F2DF',
     flex:1,
@@ -57,11 +85,11 @@ module.exports = StyleSheet.create({
     justifyContent: 'center'
   },
   leftBottomButton: {
-    
-    
+
+
   },
   rightBottomButton: {
-    
+
   },
   buttonText: {
     fontSize: 18,
@@ -87,10 +115,10 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
+
   // TASK STYLINGS
     descriptionContainer: {
-    
+
   },
   countContainer: {
     flex: 1,
@@ -101,14 +129,14 @@ module.exports = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    
+
   },
   description: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
-  
+
   // WINNER PAGE STYLINGS
   winnerImg: {
     height: 100,
@@ -124,7 +152,19 @@ module.exports = StyleSheet.create({
 
   },
   userAvatar: {
+  },
+  // MAIN IMAGE STYLINGS
+  mainBackDrop: {
+
+    paddingTop:70,
+    flex:1,
+    // justifyContent:'center',
+    alignItems:'center',
+    width:null,
+    height: null,
+    backgroundColor: 'rgba(0,0,0,0)'
   }
+
 
 })
 
