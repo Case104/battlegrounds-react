@@ -31,8 +31,7 @@ export default class Awaiting extends Component {
         },
         body: JSON.stringify({
           geolocation: location,
-          // TODO Determine how to set user here
-          email: 'jpcase104@gmail.com',
+          email: this.props.user.email
         })
       })
       .then((response) => response.json())
