@@ -18,7 +18,10 @@ class battlegroundReact extends Component {
   constructor() {
     super();
     this.state = {
-      inBattle: false,
+      battle: null,
+      user: null,
+      challenger: null,
+      task_type: null,
     }
     BackgroundGeolocation.start(function() {
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
