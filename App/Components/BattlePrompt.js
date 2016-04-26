@@ -1,30 +1,17 @@
 import React, {
-  AppRegistry,
   Component,
   StyleSheet,
   Text,
   Image,
   View
 } from 'react-native';
-
-var styles = require('../Utils/styles.js')
-
-export class BattlePrompt extends Component {
+import styles from '../Utils/styles';
+export default class BattlePrompt extends Component {
   render() {
+    console.log('battleprompt', this.props)
     return (
-      <View>
-        <Text style={styles.headline}>
-          BATTLE
-        </Text>
-          <View style={styles.userAvatar}>
-            <Image />
-          </View>
-        <Text style={styles.headline}>
-          VS
-        </Text>
-          <View style={styles.userAvatar}>
-            <Image />
-          </View>
+      <View style={styles.main}>
+        <Text>BattlePrompt</Text>
       </View>
     );
   }
