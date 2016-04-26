@@ -7,8 +7,7 @@ import React, {
   View
 } from 'react-native';
 
-import {Icons} from './icons.ios';
-var styles = require('./styles.ios')
+var styles = require('../Utils/styles.js')
 
 export class BattlePrompt extends Component {
   render() {
@@ -18,15 +17,14 @@ export class BattlePrompt extends Component {
           BATTLE
         </Text>
           <View style={styles.userAvatar}>
-            <Image>
+            <Image />
           </View>
         <Text style={styles.headline}>
           VS
         </Text>
           <View style={styles.userAvatar}>
-            <Image>
+            <Image />
           </View>
-        <Icons />
       </View>
     );
   }
