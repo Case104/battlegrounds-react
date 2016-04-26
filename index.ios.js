@@ -3,8 +3,7 @@ import React, {
   Component,
   NavigatorIOS,
   StyleSheet,
-  Text,
-  View
+  View,
 } from 'react-native';
 
 import BackgroundGeolocation from 'react-native-background-geolocation';
@@ -16,13 +15,13 @@ class battlegroundReact extends Component {
 
   render() {
     return (
-      <NavigatorIOS
-        style={styles.main}
-        initialRoute={{
-          title: 'Battlegrounds',
-          component: SignIn,
-        }}
-      />
+        <NavigatorIOS
+          style={styles.main}
+          initialRoute={{
+            title: 'Battlegrounds',
+            component: SignIn,
+          }}
+        />
     );
   }
 };

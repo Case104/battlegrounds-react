@@ -2,12 +2,13 @@ import React, {
   Component,
   StyleSheet,
   Text,
+  Image,
   MapView,
   View
 } from 'react-native';
 
-import BattlePrompt from './BattlePrompt';
 import BackgroundGeolocation from 'react-native-background-geolocation';
+import BattlePrompt from './BattlePrompt.js';
 import api from '../Utils/api.js';
 var styles = require('../Utils/styles.js')
 
@@ -40,18 +41,18 @@ export default class Awaiting extends Component {
 
   render() {
     return (
-     <View>
+     <View style={styles.container}>
        <View style={styles.headlineContainer}>
          <Text style={styles.headline}>
            Awaiting Challengers
          </Text>
        </View>
-       <View style={styles.awaitingMapContainer}>
+        <View style={styles.awaitingMapContainer}>
          <MapView style={styles.map}
            showsUserLocation={true}
            followsUserLocation={true}
          />
-       </View>
+        </View>
      </View>
     );
   }

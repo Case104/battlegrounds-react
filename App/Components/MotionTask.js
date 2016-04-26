@@ -20,6 +20,8 @@ var {
 
 import CountDown from 'react-native-countdown'; //Timer Countdown
 import TimerMixin from 'react-timer-mixin';//Possible timer Component
+import SquareButton from './Icons.js'
+import CircleButton from './Icons.js'
 
 export class MotionTask Component {
 

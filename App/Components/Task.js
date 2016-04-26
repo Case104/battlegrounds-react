@@ -14,17 +14,25 @@ import React, {
   View,
 } from 'react-native';
 
-import {CircleButton} from './icons.ios'
-import {SquareButton} from './icons.ios'
-var styles = require('./styles.ios')
+import {CircleButton} from './Icons.js'
+import {SquareButton} from './Icons.js'
+var styles = require('../Utils/styles.js')
 export class Task extends Component {
   constructor(props){
     super(props);
     this.state = {
       isLoading: false,
-      error: false
+      error: false,
+      winner:false
     }
   }
+  handlePress() {
+    // this.setState {
+    //   isLoading: true,
+    //   winner:true
+    // }
+  }
+
   render() {
     var task = TASK_DATA[0];
     var countDown = COUNT_DOWN[0];
@@ -35,15 +43,17 @@ export class Task extends Component {
             <Text style={styles.countDown}>{countDown.count}</Text>
           </View>
             <View style={styles.circleButtonContainer}>
-              <CircleButton/>
+              <CircleButton
+                onPress={this.handlePress}
+              />
             </View>
           <View style={styles.descriptionContainer}>
-            <Text style={styles.description}>{task.description}</Text>         
+            <Text style={styles.description}>{task.description}</Text>
           </View>
         </View>
         <View style={styles.bottomNav}>
             <SquareButton/>
-            <SquareButton/> 
+            <SquareButton/>
         </View>
       </View>
     );
