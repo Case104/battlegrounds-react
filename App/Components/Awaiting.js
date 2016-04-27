@@ -26,7 +26,6 @@ export default class Awaiting extends Component {
     BackgroundGeolocation.on('location', (location) => {
       api.postGeolocations(location, this.props.user.email)
       .then((battle) => {
-        console.log('battle', battle)
         this.props.navigator.push({
           component: BattlePrompt,
           passProps: {

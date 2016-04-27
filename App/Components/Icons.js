@@ -45,7 +45,7 @@ export class SquareButton extends Component {
 
 export class CircleButton extends Component{
   handleSubmit(){
-
+    console.log('brett sucks more')
    }
   render() {
     return (
