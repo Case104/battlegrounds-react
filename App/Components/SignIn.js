@@ -6,10 +6,11 @@ import React, {
   View,
   Image
 } from 'react-native';
-var styles = require('../Utils/styles.js');
+
+import styles from '../Utils/styles.js';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import api from '../Utils/api.js';
-import Awaiting from './Awaiting.js'
+import Awaiting from './Awaiting.js';
 
 
 export default class SignIn extends Component {
@@ -59,18 +60,3 @@ export default class SignIn extends Component {
     );
   }
 }
-
-// const styles = StyleSheet.create({
-
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   title: {
-//     fontSize: 40,
-//     color: 'orange',
-//   },
-
-// });
