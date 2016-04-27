@@ -163,7 +163,11 @@ module.exports = StyleSheet.create({
     width:null,
     height: null,
     backgroundColor: 'rgba(0,0,0,0)'
-  }
+  },
+  listView: {
+    paddingTop: 20,
+    backgroundColor: '#F5FCFF',
+  },
 
 
 })
