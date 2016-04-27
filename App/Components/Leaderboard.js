@@ -59,14 +59,14 @@ export default class Leaderboard extends Component {
 
   renderUser(user) {
     return (
-      <View style={styles.container}>
+      <View style={styles.leaderboardContainer}>
         <Image
           source={{uri: user.avatar}}
-          style={styles.winnerImg}
+          style={styles.thumbnail}
         />
         <View style={styles.rightContainer}>
-          <Text>{user.email}</Text>
-          <Text>{user.points}</Text>
+          <Text style={styles.leaderboardName}>{user.email}</Text>
+          <Text style={styles.points}>{user.points}</Text>
         </View>
       </View>
     );

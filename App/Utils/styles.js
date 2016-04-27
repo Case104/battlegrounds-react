@@ -164,9 +164,33 @@ module.exports = StyleSheet.create({
     height: null,
     backgroundColor: 'rgba(0,0,0,0)'
   },
+
+  // LEADERBOARDS
+  leaderboardContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgb(41,178,190)',
+
+  },
   listView: {
     paddingTop: 20,
-    backgroundColor: '#F5FCFF',
+  },
+   rightContainer: {
+    flex: 1,
+  },
+  thumbnail: {
+    width: 53,
+    height: 81,
+  },
+  leaderboardName: {
+    fontSize: 20,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  points: {
+    textAlign: 'center',
   },
 
 
