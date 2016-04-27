@@ -11,11 +11,28 @@ module.exports = api = {
 		return fetch(url, details).then((response) => response.json());
 	},
 
+	postUsersFb(photo, email){
+		console.log('email', 'photo')
+		var url = 'http://localhost:3000/users'
+		var details ={
+			method: 'POST',
+			body: JSON.stringify({photo: photo.data.url, email: email.email })
+		}
+		return fetch(url, details).then((response) => response.json());
+	},
+
+	getFbPhoto(user){
+		var url = `https://graph.facebook.com/v2.3/${user.credentials.userId}/picture?width=200&redirect=false&access_token=${user.credentials.token}`
+		return fetch(url).then((response) => response.json());
+	},
+
+	getFbEmail(user){
+		var url = `https://graph.facebook.com/v2.3/${user.credentials.userId}?fields=email&access_token=${user.credentials.token}`
+		return fetch(url).then((response) => response.json());
+	},
+
 	getLeaderboardData(){
 		var url='http://localhost:3000/users'
-		var details = {
-			method: 'GET',
-		}
 		return fetch(url).then((response) => response.json());
 	},
 
