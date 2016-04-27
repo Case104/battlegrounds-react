@@ -10,8 +10,8 @@ import React, {
 import styles from '../Utils/styles.js';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import api from '../Utils/api.js';
-import Awaiting from './Awaiting.js';
-
+import Awaiting from './Awaiting.js'
+import FBLogin from 'react-native-facebook-login'
 
 export default class SignIn extends Component {
 
@@ -49,6 +49,7 @@ export default class SignIn extends Component {
           Battlegrounds
         </Text>
         <View style={styles.signInWrapper}>
+          <FBLogin />
           <GoogleSigninButton
             style={{width: 312, height: 48}}
             size={GoogleSigninButton.Size.Standard}
