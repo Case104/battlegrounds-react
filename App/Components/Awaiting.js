@@ -1,16 +1,18 @@
 import React, {
   Component,
-  StyleSheet,
-  Text,
   Image,
   MapView,
-  View
+  StyleSheet,
+  TouchableHighlight,
+  Text,
+  View,
 } from 'react-native';
 
 import BackgroundGeolocation from 'react-native-background-geolocation';
 import BattlePrompt from './BattlePrompt.js';
+import Profile from './Profile.js';
 import api from '../Utils/api.js';
-var styles = require('../Utils/styles.js')
+import styles from '../Utils/styles.js';
 
 export default class Awaiting extends Component {
 
@@ -38,21 +40,49 @@ export default class Awaiting extends Component {
     });
   }
 
+  navToProfile(){
+    this.props.navigator.push({
+      component: Profile,
+      passProps: {user: this.props.user},
+    })
+  }
+
+  navToLeaderboard(){
+     this.props.navigator.push({
+      component: Leaderboard,
+      passProps: {user: this.props.user},
+    })
+  }
+
   render() {
     return (
-     <View style={styles.container}>
-       <View style={styles.headlineContainer}>
-         <Text style={styles.headline}>
-           Awaiting Challengers
-         </Text>
+      <View style={styles.main}>
+       <View style={styles.container}>
+         <View style={styles.headlineContainer}>
+           <Text style={styles.headline}>
+             Awaiting Challengers
+           </Text>
+         </View>
+          <View style={styles.awaitingMapContainer}>
+           <MapView style={styles.map}
+             showsUserLocation={true}
+             followsUserLocation={true}
+           />
+          </View>
        </View>
-        <View style={styles.awaitingMapContainer}>
-         <MapView style={styles.map}
-           showsUserLocation={true}
-           followsUserLocation={true}
-         />
+
+       <View style={styles.bottomNav}>
+
+          <TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToProfile.bind(this)}>
+            <Text style={styles.buttonText}>X</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToLeaderboard.bind(this)}>
+            <Text style={styles.buttonText}>X</Text>
+          </TouchableHighlight>
+
         </View>
-     </View>
+      </View>
     );
   }
 }
