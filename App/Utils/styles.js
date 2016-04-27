@@ -120,16 +120,13 @@ module.exports = StyleSheet.create({
     descriptionContainer: {
 
   },
-  countContainer: {
-    flex: 1,
-    marginTop: 20,
-    alignItems: 'center',
+  scoreHeadline: {
+    fontSize: 40,
+    color: 'white'
   },
-  countdown: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-
+  motionScore: {
+    fontSize:30,
+    color: 'green'
   },
   description: {
     fontSize: 20,
