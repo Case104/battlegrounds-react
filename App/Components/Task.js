@@ -1,54 +1,57 @@
-
-
-var TASK_DATA = [
-  {name: 'Quick Draw!', description: 'Be The First To Click'},
-];
-var COUNT_DOWN = [
-  {count:'10'},
-];
 import React, {
   Component,
   Image,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
 } from 'react-native';
 
+import Winner from './Winner'
 import {CircleButton} from './Icons.js'
 import {SquareButton} from './Icons.js'
-var styles = require('../Utils/styles.js')
-export class Task extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: false,
-      error: false,
-      winner:false
-    }
+import styles from'../Utils/styles.js'
+import api from '../Utils/api.js'
+
+
+export default class Task extends Component {
+
+  handlePress(battle){
+    console.log('task battle', battle)
+    this.props.navigator.push({
+      component: Winner,
+      passProps: {
+        user: this.props.user,
+        battle: battle,
+      }
+    })
   }
-  handlePress() {
-    // this.setState {
-    //   isLoading: true,
-    //   winner:true
-    // }
+
+  _quickDraw(){
+    api.quickDrawRequest(this.props.battle)
+    .then((battle) => this.handlePress(battle)
+    )
+    .catch((err) => {
+      console.log('error in deny', err)
+    })
+    .done()
   }
 
   render() {
-    var task = TASK_DATA[0];
-    var countDown = COUNT_DOWN[0];
     return (
       <View style={styles.main}>
         <View style={styles.container}>
           <View style={styles.countContainer}>
-            <Text style={styles.countDown}>{countDown.count}</Text>
           </View>
             <View style={styles.circleButtonContainer}>
-              <CircleButton
-                onPress={this.handlePress}
-              />
+              <TouchableHighlight
+                style={styles.circleButton}
+                onPress={this._quickDraw.bind(this)}
+                underlayColor='white'>
+                <Text style={styles.buttonText}>Click</Text>
+              </TouchableHighlight>
             </View>
           <View style={styles.descriptionContainer}>
-            <Text style={styles.description}>{task.description}</Text>
           </View>
         </View>
         <View style={styles.bottomNav}>

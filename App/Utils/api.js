@@ -26,5 +26,14 @@ module.exports = api = {
       body: JSON.stringify({location, user})
     }
     return fetch(url, details).then((response) => response.json());
+  },
+
+  quickDrawRequest(battle){
+  	var url = 'http://localhost:3000/battle/quickdraw'
+  	var details = {
+  		method: 'PATCH',
+  		body: JSON.stringify(battle)
+  	}
+  	return fetch(url, details).then((response) => response.json());
   }
 };

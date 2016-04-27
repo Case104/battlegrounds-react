@@ -6,16 +6,21 @@ import React, {
   View,
 } from 'react-native';
 
-import {SquareButton} from './icons.ios'
-var styles = require('./styles.ios')
+import {SquareButton} from './Icons.js'
+import styles from '../Utils/styles.js'
 
-export class Winner extends Component {
+export default class Winner extends Component {
+	
+	componentDidMount(){
+		console.log(this.props)
+	}	
+
 	render() {
 		return(
 			<View style={styles.main}>
 				<View style={styles.container}>
 					<Text style={styles.winnerBanner}>Winner!</Text>
-					<Image source={{uri: 'http://cdn.hitfix.com/photos/6203942/deadpool-australia-day.jpg'}}
+					<Image source={{uri: this.props.battle.avatar}}
 						style={styles.winnerImg} />
 				</View>
 				<View style={styles.bottomNav}>
