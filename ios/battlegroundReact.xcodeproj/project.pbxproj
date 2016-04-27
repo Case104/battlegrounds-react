@@ -13,6 +13,9 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* battlegroundReactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* battlegroundReactTests.m */; };
+		0988E8371CD102C2000DC796 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0988E8291CD102A3000DC796 /* libRCTFBLogin.a */; };
+		0988E83A1CD1032E000DC796 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0988E8391CD1032E000DC796 /* FBSDKCoreKit.framework */; };
+		0988E83C1CD10354000DC796 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0988E83B1CD10354000DC796 /* FBSDKLoginKit.framework */; };
 		09EC13051CCBF4910056E45A /* libRNBackgroundGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EC12FB1CCBF1050056E45A /* libRNBackgroundGeolocation.a */; };
 		09EC13061CCBF4BB0056E45A /* TSLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EC13001CCBF23C0056E45A /* TSLocationManager.framework */; };
 		09EC13081CCBF5090056E45A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EC13071CCBF5090056E45A /* libsqlite3.tbd */; };
@@ -78,6 +81,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = battlegroundReact;
+		};
+		0988E8281CD102A3000DC796 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0988E8231CD102A3000DC796 /* RCTFBLogin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4F3A6B5B1ACFBCC500CA65F7;
+			remoteInfo = RCTFBLogin;
 		};
 		09EC12FA1CCBF1050056E45A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -154,6 +164,9 @@
 		00E356EE1AD99517003FC87E /* battlegroundReactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = battlegroundReactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* battlegroundReactTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = battlegroundReactTests.m; sourceTree = "<group>"; };
+		0988E8231CD102A3000DC796 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
+		0988E8391CD1032E000DC796 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		0988E83B1CD10354000DC796 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		09EC12EB1CCBF1040056E45A /* RNBackgroundGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundGeolocation.xcodeproj; path = "../node_modules/react-native-background-geolocation/RNBackgroundGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		09EC12FE1CCBF1D80056E45A /* libRNBackgroundGeolocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRNBackgroundGeolocation.a; path = "build/Build/Products/Debug-iphonesimulator/libRNBackgroundGeolocation.a"; sourceTree = "<group>"; };
 		09EC13001CCBF23C0056E45A /* TSLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSLocationManager.framework; path = "../node_modules/react-native-background-geolocation/RNBackgroundGeolocation/TSLocationManager.framework"; sourceTree = "<group>"; };
@@ -194,12 +207,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0988E8371CD102C2000DC796 /* libRCTFBLogin.a in Frameworks */,
 				381B243A1CCE64210004C259 /* libRNMotionManager.a in Frameworks */,
 				09EC13081CCBF5090056E45A /* libsqlite3.tbd in Frameworks */,
 				09EC13061CCBF4BB0056E45A /* TSLocationManager.framework in Frameworks */,
+				0988E83A1CD1032E000DC796 /* FBSDKCoreKit.framework in Frameworks */,
 				09EC13051CCBF4910056E45A /* libRNBackgroundGeolocation.a in Frameworks */,
 				E3F2C7951CCA7C5100C41E2B /* libz.tbd in Frameworks */,
 				E3F2C7931CCA7A9E00C41E2B /* SystemConfiguration.framework in Frameworks */,
+				0988E83C1CD10354000DC796 /* FBSDKLoginKit.framework in Frameworks */,
 				E3F2C7911CCA7A8C00C41E2B /* StoreKit.framework in Frameworks */,
 				E3F2C78F1CCA7A7D00C41E2B /* AddressBook.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -276,6 +292,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0988E8241CD102A3000DC796 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0988E8291CD102A3000DC796 /* libRCTFBLogin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0988E8381CD10306000DC796 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0988E83B1CD10354000DC796 /* FBSDKLoginKit.framework */,
+				0988E8391CD1032E000DC796 /* FBSDKCoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		09EC12EC1CCBF1040056E45A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +376,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				0988E8231CD102A3000DC796 /* RCTFBLogin.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -368,6 +402,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0988E8381CD10306000DC796 /* Frameworks */,
 				381B24311CCE640A0004C259 /* RNMotionManager.xcodeproj */,
 				09EC13071CCBF5090056E45A /* libsqlite3.tbd */,
 				09EC13001CCBF23C0056E45A /* TSLocationManager.framework */,
@@ -487,6 +522,10 @@
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
 				{
+					ProductGroup = 0988E8241CD102A3000DC796 /* Products */;
+					ProjectRef = 0988E8231CD102A3000DC796 /* RCTFBLogin.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -573,6 +612,13 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0988E8291CD102A3000DC796 /* libRCTFBLogin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBLogin.a;
+			remoteRef = 0988E8281CD102A3000DC796 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		09EC12FB1CCBF1050056E45A /* libRNBackgroundGeolocation.a */ = {
@@ -766,9 +812,9 @@
 				DEAD_CODE_STRIPPING = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/RNGoogleSignin",
-					"$(PROJECT_DIR)/../node_modules/react-native-background-geolocation/**",
+					"<Multiple",
+					"values>",
+					"$(PROJECT_DIR)/**",
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
@@ -800,9 +846,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/RNGoogleSignin",
-					"$(PROJECT_DIR)/../node_modules/react-native-background-geolocation/**",
+					"<Multiple",
+					"values>",
+					"$(PROJECT_DIR)/**",
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
