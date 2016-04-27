@@ -40,6 +40,23 @@
 				<string>org.reactjs.native.example.battlegroundReact</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb454775734729575</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>454775734729575</string>
+	<key>FacebookDisplayName</key>
+	<string>Battleground</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -72,30 +89,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb454775734729575</string>
-      </array>
-    </dict>
-  </array>
-  <key>FacebookAppID</key>
-  <string>fb454775734729575</string>
-  <key>FacebookDisplayName</key>
-  <string>Battleground</string>
-  <key>NSAppTransportSecurity</key>
-  <dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-  </dict>
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>fbapi</string>
-    <string>fb-messenger-api</string>
-    <string>fbauth2</string>
-    <string>fbshareextension</string>
-  </array>
 </dict>
 </plist>
