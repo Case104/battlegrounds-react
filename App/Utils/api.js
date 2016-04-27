@@ -1,6 +1,7 @@
 API_URL = 'http://localhost:3000'
 
 module.exports = api = {
+
 	postUsers(userData){
 		var url = 'http://localhost:3000/users'
 		var details = {
@@ -8,6 +9,14 @@ module.exports = api = {
 			body: JSON.stringify(userData)
 		}
 		return fetch(url, details).then((response) => response.json());
+	},
+
+	getLeaderboardData(){
+		var url='http://localhost:3000/users'
+		var details = {
+			method: 'GET',
+		}
+		return fetch(url).then((response) => response.json());
 	},
 
 	denyBattle(battle){
