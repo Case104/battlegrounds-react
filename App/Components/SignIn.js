@@ -6,11 +6,12 @@ import React, {
   View,
   Image
 } from 'react-native';
-var styles = require('../Utils/styles.js');
+
+import styles from '../Utils/styles.js';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import api from '../Utils/api.js';
 import Awaiting from './Awaiting.js'
-
+import FBLogin from 'react-native-facebook-login'
 
 export default class SignIn extends Component {
 
@@ -21,10 +22,11 @@ export default class SignIn extends Component {
     });
   }
 
-  navToAwaiting(){
+  navToAwaiting(user){
+    console.log('user', user)
     this.props.navigator.push({
       component: Awaiting,
-      passProps: {user: GoogleSignin.currentUser()},
+      passProps: {user: user},
     })
   }
 
@@ -32,12 +34,28 @@ export default class SignIn extends Component {
     GoogleSignin.signIn()
     .then((user) => {
       api.postUsers(user)
+        .then((googleUser) => this.navToAwaiting(googleUser)
+        )
     })
-    .then(() => this.navToAwaiting()
-    )
     .catch((err) => {
       console.log('WRONG SIGNIN', err);
     })
+    .done()
+  }
+
+  _fb_signIn(fbData) {
+    var promisesArray = [];
+    promisesArray.push(api.getFbPhoto(fbData));
+    promisesArray.push(api.getFbEmail(fbData));
+    Promise.all(promisesArray)
+    .then((values) => {
+      api.postUsersFb(values[0], values[1])
+        .then((user) => {
+          this.navToAwaiting(user)
+        })
+    })
+    .catch((err) => console.log('Goofed', err)
+    )
     .done()
   }
 
@@ -48,6 +66,10 @@ export default class SignIn extends Component {
           Battlegrounds
         </Text>
         <View style={styles.signInWrapper}>
+          <FBLogin 
+          permissions={["email", "user_friends", "public_profile"]}
+            onLogin={this._fb_signIn.bind(this)}
+          />
           <GoogleSigninButton
             style={{width: 312, height: 48}}
             size={GoogleSigninButton.Size.Standard}
@@ -59,18 +81,3 @@ export default class SignIn extends Component {
     );
   }
 }
-
-// const styles = StyleSheet.create({
-
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   title: {
-//     fontSize: 40,
-//     color: 'orange',
-//   },
-
-// });
