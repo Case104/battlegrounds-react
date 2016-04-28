@@ -235,10 +235,11 @@ module.exports = StyleSheet.create({
     flex: 1,
   },
   thumbnail: {
-    width: 53,
-    height: 81,
+    width: 70,
+    height: 93,
     borderRadius:10,
-    margin: 5
+    marginRight: 90,
+    marginBottom: 5
   },
   leaderboardName: {
     fontSize: 20,
@@ -256,7 +257,18 @@ module.exports = StyleSheet.create({
 
     // fontFamily: 'oswald'
     // marginBottom: 10
+  },
+   points: {
+    fontSize: 23,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign:'left',
+    marginLeft:50
+
+    // fontFamily: 'oswald'
+    // marginBottom: 10
   }
+
 
 
 })

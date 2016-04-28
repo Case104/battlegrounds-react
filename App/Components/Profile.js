@@ -32,6 +32,9 @@ export default class Profile extends Component {
 	render(){
 		return(
 			<View style={styles.main}>
+        <View style={styles.topNav}>
+          <Text style={styles.battlePromptText}>Profile</Text>
+        </View>
         <Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
           <Image
             source={{uri: this.props.user.avatar}}

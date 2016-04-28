@@ -56,7 +56,7 @@ export default class Leaderboard extends Component {
     return (
       <View style={styles.main}>
         <View style={styles.topNav}>
-          <Text style={styles.battlePromptText}>Battle Leaders</Text>
+          <Text style={styles.battlePromptText}>Point Leaders</Text>
         </View>
         <Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
         	<ListView
@@ -110,7 +110,6 @@ export default class Leaderboard extends Component {
             style={styles.thumbnail}
           />
           <View style={styles.rightContainer}>
-            <Text style={styles.battlePromptText}>{user.email}</Text>
             <Text style={styles.battlePromptText}>{user.points}</Text>
           </View>
         </View>
