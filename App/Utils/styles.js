@@ -84,6 +84,15 @@ module.exports = StyleSheet.create({
     // borderWidth:1.5,
     // borderColor:'rgb(255,255,255)'
   },
+  fb: {
+    backgroundColor: '#415DAE',
+    flex:1,
+    height: 155,
+    width: 190,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   darkSquareButton: {
     backgroundColor: 'rgb(8,66,91)',
     flex:1,
@@ -119,11 +128,9 @@ module.exports = StyleSheet.create({
     backgroundColor: 'rgb(8,66,92)',
     width:150,
     height: 150,
-    borderColor:'white',
+    borderColor:'black',
     borderWidth: 1,
     borderRadius: 150,
-    marginBottom: 10,
-    marginTop: 10,
     padding: 6,
     justifyContent: 'center'
   },
@@ -154,8 +161,8 @@ module.exports = StyleSheet.create({
   },
   // NAVIGATION STYLINGS
   topNav: {
-    paddingTop: 20,
-    paddingBottom: 5,
+    paddingTop: 30,
+    paddingBottom: 10,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -191,6 +198,8 @@ module.exports = StyleSheet.create({
     width: 200,
     marginBottom:30,
     borderRadius:100,
+    borderColor: 'black',
+    borderWidth: 2
   },
   winnerBanner: {
     fontSize: 35,
@@ -205,6 +214,8 @@ module.exports = StyleSheet.create({
     width: 125,
     marginBottom:30,
     borderRadius:63,
+    borderColor: 'black',
+    borderWidth: 2
   },
   userAvatar: {
   },
@@ -226,20 +237,21 @@ module.exports = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    // marginBottom:30
+
   },
-  listView: {
-    // paddingTop: 20,
-  },
+
    rightContainer: {
     flex: 1,
+    alignItems:'center'
   },
   thumbnail: {
-    width: 70,
-    height: 93,
-    borderRadius:10,
-    marginRight: 90,
-    marginBottom: 5
+    width: 80,
+    height: 80,
+    borderRadius:40,
+    marginRight: 70,
+    marginBottom: 10,
+    // borderColor:'black',
+    // borderWidth: 5
   },
   leaderboardName: {
     fontSize: 20,
@@ -248,18 +260,17 @@ module.exports = StyleSheet.create({
   },
   points: {
     textAlign: 'center',
+    alignSelf: 'center'
   },
   battlePromptText: {
     fontSize: 23,
     color: 'white',
     fontWeight: 'bold',
-    textAlign:'center'
-
-    // fontFamily: 'oswald'
-    // marginBottom: 10
+    textAlign:'center',
+    fontFamily: 'verdana'
   },
    points: {
-    fontSize: 23,
+    fontSize: 35,
     color: 'white',
     fontWeight: 'bold',
     textAlign:'left',

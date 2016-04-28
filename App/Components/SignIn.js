@@ -77,18 +77,13 @@ export default class SignIn extends Component {
                 style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
             />
           </TouchableHighlight>
-
-          <TouchableHighlight
-            style={styles.squareButton}
-            underlayColor='white'
-            onLogin={this._fb_signIn.bind(this)}
-          >
-            <Image
-                source={require('../Utils/Images/facebook.png')}
-                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
-
-            />
-          </TouchableHighlight>
+          <View style={styles.fb}>
+            <FBLogin
+              style={{}}
+              permissions={["email", "user_friends", "public_profile"]}
+              onLogin={this._fb_signIn.bind(this)}
+             />
+          </View>
         </View>
       </View>
     );

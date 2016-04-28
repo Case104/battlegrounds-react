@@ -34,7 +34,7 @@ export default class Winner extends Component {
 	render() {
 		return(
 			<View style={styles.main}>
-				<Image style={styles.mainBackDrop} source={require('../Utils/Images/smooth-background.png')}>
+				<Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
 					<Text style={styles.winnerBanner}>Winner!</Text>
 					<Image source={{uri: this.props.battle.avatar}}
 						style={styles.winnerImg} />

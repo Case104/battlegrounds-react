@@ -78,12 +78,11 @@ export default class Leaderboard extends Component {
           </TouchableHighlight>
 
           <TouchableHighlight
-            style={styles.squareButton}
+            style={styles.darkSquareButton}
             underlayColor='white'
-            onPress={this.navToProfile.bind(this)}
           >
             <Image
-                source={require('../Utils/Images/profile.png')}
+                source={require('../Utils/Images/leaderboard.png')}
                 style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
             />
           </TouchableHighlight>
@@ -110,7 +109,7 @@ export default class Leaderboard extends Component {
             style={styles.thumbnail}
           />
           <View style={styles.rightContainer}>
-            <Text style={styles.battlePromptText}>{user.points}</Text>
+            <Text style={styles.points}>{user.points}</Text>
           </View>
         </View>
     );
