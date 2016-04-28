@@ -4,7 +4,8 @@ import React, {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
 import styles from '../Utils/styles.js';
@@ -62,25 +63,29 @@ export default class SignIn extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <Image source={require('../Utils/Images/battleGround.png')} style={styles.mainBackDrop}>
-          <Text style={styles.title}>
-            Battlegrounds
-          </Text>
-          <View style={styles.bottomNav}>
-            <FBLogin
-            permissions={["email", "user_friends", "public_profile"]}
-              onLogin={this._fb_signIn.bind(this)}
+        <Image style={styles.mainBackDrop} source={require('../Utils/Images/app.png')}>
+
+        </Image>
+        <View style={styles.bottomNav}>
+           <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this._signIn.bind(this)}
+          >
+            <Image
+                source={require('../Utils/Images/google.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
             />
-            <GoogleSigninButton
-              style={styles.squareButton}
-
-
-              color={GoogleSigninButton.Color.Dark}
-              onPress={this._signIn.bind(this)}
-              />
+          </TouchableHighlight>
+          <View style={styles.fb}>
+            <FBLogin
+              style={{}}
+              permissions={["email", "user_friends", "public_profile"]}
+              onLogin={this._fb_signIn.bind(this)}
+             />
           </View>
         </View>
-      </Image>
+      </View>
     );
   }
 }

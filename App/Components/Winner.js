@@ -12,10 +12,10 @@ import Awaiting from './Awaiting.js'
 import Leaderboard from './Leaderboard.js'
 
 export default class Winner extends Component {
-	
+
 	componentDidMount(){
 		console.log(this.props)
-	}	
+	}
 
 	navToAwaiting(){
     this.props.navigator.push({
@@ -34,23 +34,35 @@ export default class Winner extends Component {
 	render() {
 		return(
 			<View style={styles.main}>
-				<View style={styles.container}>
+				<Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
 					<Text style={styles.winnerBanner}>Winner!</Text>
 					<Image source={{uri: this.props.battle.avatar}}
 						style={styles.winnerImg} />
-				</View>
+				</Image>
 
 				<View style={styles.bottomNav}>
 
-					<TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToAwaiting.bind(this)}>
-	          <Text style={styles.buttonText}>Awaiting</Text>
-	      	</TouchableHighlight>
-
-					<TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToLeaderboard.bind(this)}>
-	          <Text style={styles.buttonText}>Leaderboard</Text>
-	      	</TouchableHighlight>
-
-      	</View>
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToAwaiting.bind(this)}
+          >
+            <Image
+                source={require('../Utils/Images/home.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+            />
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToLeaderboard.bind(this)}
+          >
+             <Image
+                source={require('../Utils/Images/leaderboard.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+              />
+          </TouchableHighlight>
+        </View>
 			</View>
 		)
 	}

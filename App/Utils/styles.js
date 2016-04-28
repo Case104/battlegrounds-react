@@ -14,7 +14,7 @@ module.exports = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(41,178,190)',
+    // backgroundColor: 'rgb(41,178,190)',
   },
   signInContainer: {
     flex:1,
@@ -47,6 +47,12 @@ module.exports = StyleSheet.create({
   },
 
 // MAP STYLINGS
+  mapContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
   awaitingMapContainer: {
     // alignItems: 'center',
     // justifyContent: 'center'
@@ -69,25 +75,63 @@ module.exports = StyleSheet.create({
     height:50
   },
   squareButton: {
-    backgroundColor:'#E1F2DF',
+    backgroundColor: 'rgb(41,178,190)',
     flex:1,
     height: 155,
     width: 190,
     flexDirection: 'row',
     justifyContent: 'center',
-    borderWidth:1.5,
-    borderColor:'rgb(255,255,255)'
+    // borderWidth:1.5,
+    // borderColor:'rgb(255,255,255)'
+  },
+  fb: {
+    backgroundColor: '#415DAE',
+    flex:1,
+    height: 155,
+    width: 190,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  darkSquareButton: {
+    backgroundColor: 'rgb(8,66,91)',
+    flex:1,
+    height: 155,
+    width: 190,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    // borderWidth:1.5,
+    // borderColor:'rgb(255,255,255)'
+  },
+  readyButton: {
+
+    height: 44,
+    width: 60,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    // borderWidth:1.5,
+
+  },
+
+   versus: {
+
+    height: 44,
+    width: 60,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom:30,
+    // borderWidth:1.5,
+
   },
 
   circleButton: {
-    backgroundColor:'#6CBAF5',
-    width:100,
-    height: 100,
-    borderColor:'white',
+    backgroundColor: 'rgb(8,66,92)',
+    width:150,
+    height: 150,
+    borderColor:'black',
     borderWidth: 1,
-    borderRadius: 100,
-    marginBottom: 10,
-    marginTop: 10,
+    borderRadius: 150,
+    padding: 6,
     justifyContent: 'center'
   },
   leftBottomButton: {
@@ -115,7 +159,15 @@ module.exports = StyleSheet.create({
   iconHelp: {
 
   },
-  // BOTTOM NAVIGATION STYLINGS
+  // NAVIGATION STYLINGS
+  topNav: {
+    paddingTop: 30,
+    paddingBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgb(8,66,92)'
+  },
   bottomNav: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -142,17 +194,28 @@ module.exports = StyleSheet.create({
 
   // WINNER PAGE STYLINGS
   winnerImg: {
+    height: 200,
+    width: 200,
+    marginBottom:30,
+    borderRadius:100,
+    borderColor: 'black',
+    borderWidth: 2
+  },
+  winnerBanner: {
+    fontSize: 35,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign:'center',
+    fontFamily: 'verdana',
+    marginBottom: 30
+  },
+   challengerImg: {
     height: 125,
     width: 125,
     marginBottom:30,
-    borderRadius:30,
-  },
-  winnerBanner: {
-    fontFamily: 'verdana',
-    fontSize: 20,
-    marginTop:50,
-    marginBottom:20,
-
+    borderRadius:63,
+    borderColor: 'black',
+    borderWidth: 2
   },
   userAvatar: {
   },
@@ -174,18 +237,21 @@ module.exports = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(41,178,190)',
 
   },
-  listView: {
-    paddingTop: 20,
-  },
+
    rightContainer: {
     flex: 1,
+    alignItems:'center'
   },
   thumbnail: {
-    width: 53,
-    height: 81,
+    width: 80,
+    height: 80,
+    borderRadius:40,
+    marginRight: 70,
+    marginBottom: 10,
+    // borderColor:'black',
+    // borderWidth: 5
   },
   leaderboardName: {
     fontSize: 20,
@@ -194,7 +260,26 @@ module.exports = StyleSheet.create({
   },
   points: {
     textAlign: 'center',
+    alignSelf: 'center'
   },
+  battlePromptText: {
+    fontSize: 23,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign:'center',
+    fontFamily: 'verdana'
+  },
+   points: {
+    fontSize: 35,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign:'left',
+    marginLeft:50
+
+    // fontFamily: 'oswald'
+    // marginBottom: 10
+  }
+
 
 
 })

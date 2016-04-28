@@ -61,41 +61,28 @@ export default class Awaiting extends Component {
   render() {
     return (
       <View style={styles.main}>
-       <View style={styles.container}>
-         <View style={styles.bottomNav}>
+      <View style={styles.topNav}>
           <TouchableHighlight
-            style={localStyles.button}
+            style={styles.readyButton}
+            underlayColor='white'
             onPress={this.turnOnGeolocation.bind(this)}>
             <Image
                 source={require('../Utils/Images/ready.png')}
-                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+                style={{width: 60, height: 44, resizeMode: 'stretch',flex:1}}
               >
-                <Text style={localStyles.awaitingText}>Ready</Text>
-            </Image>
-          </TouchableHighlight>
-          <TouchableHighlight
-            style={localStyles.button}
-            onPress={this.turnOffGeolocation.bind(this)}>
-            <Image
-                source={require('../Utils/Images/not-ready.png')}
-                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
-              >
-                <Text style={localStyles.awaitingText}>Not Ready</Text>
             </Image>
           </TouchableHighlight>
           </View>
+       <MapView style={styles.mainBackDrop} showsUserLocation={true} followsUserLocation={true}>
+
           <View style={styles.headlineContainer}>
            <Text style={styles.headline}>
              Awaiting Challenge...
            </Text>
           </View>
           <View style={styles.awaitingMapContainer}>
-           <MapView style={styles.map}
-             showsUserLocation={true}
-             followsUserLocation={true}
-           />
           </View>
-       </View>
+       </MapView>
 
        <View style={styles.bottomNav}>
 

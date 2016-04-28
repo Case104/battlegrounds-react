@@ -49,12 +49,19 @@ export default class BattlePrompt extends Component {
     console.log('battle',this.props.battle.battle.users[0].avatar)
     return (
       <View style={styles.main}>
-        <View style={styles.container}>
-          <Text style={promptStyles.battlePromptText}>Accept Challenge???</Text>
-          <Image style={styles.winnerImg} source={{uri: this.props.battle.battle.users[0].avatar }} />
-          <Text style={promptStyles.battlePromptText}>Vs.</Text>
-          <Image style={styles.winnerImg} source={{uri: this.props.battle.battle.users[1].avatar }} />
+        <View style={styles.topNav}>
+          <Text style={promptStyles.battlePromptText}>Accept Challenge?</Text>
         </View>
+        <Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
+          <Image style={styles.challengerImg} source={{uri: this.props.battle.battle.users[0].avatar }} />
+            <View style={styles.versus}>
+            <Image
+              source={require('../Utils/Images/ready.png')}
+              style={{width: 60, height: 44, resizeMode: 'stretch',flex:1}}
+            />
+            </View>
+          <Image style={styles.challengerImg} source={{uri: this.props.battle.battle.users[1].avatar }} />
+        </Image>
         <View style={styles.bottomNav}>
           <TouchableHighlight
           style={styles.squareButton}
@@ -85,6 +92,7 @@ var promptStyles = StyleSheet.create({
     fontSize: 23,
     color: 'white',
     fontWeight: 'bold',
-    marginBottom: 10
+    // fontFamily: 'oswald'
+    // marginBottom: 10
   }
 })

@@ -17,7 +17,9 @@ class battlegroundReact extends Component {
   render() {
     return (
         <NavigatorIOS
+
           style={styles.main}
+          navigationBarHidden={true}
           initialRoute={{
             title: 'Battlegrounds',
             component: SignIn
