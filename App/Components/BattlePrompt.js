@@ -11,12 +11,13 @@ import styles from '../Utils/styles.js';
 import api from '../Utils/api.js';
 import Awaiting from './Awaiting.js';
 import Task from './Task.js'
+import MotionTask from './MotionTask.js'
 
 export default class BattlePrompt extends Component {
 
   handleAccept(){
     this.props.navigator.push({
-      component: Task,
+      component: MotionTask,
       passProps: {
         user: this.props.user,
         battle: this.props.battle,
