@@ -13,7 +13,7 @@ import Leaderboard from './Leaderboard.js'
 import styles from '../Utils/styles.js'
 
 export default class Profile extends Component {
-
+  
   navToLeaderboard(){
     this.props.navigator.push({
       component: Leaderboard,
@@ -33,7 +33,11 @@ export default class Profile extends Component {
 		return(
 			<View style={styles.main}>
         <View style={styles.container}>
-  				<Text>This is the profile</Text>
+          <Image
+            source={{uri: this.props.user.avatar}}
+          />
+  				<Text>{this.props.user.email}</Text>
+          <Text>{this.props.user.points}</Text>
         </View>
         <View style={styles.bottomNav}>
   				 <TouchableHighlight
