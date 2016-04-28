@@ -66,11 +66,12 @@ module.exports = StyleSheet.create({
   squareButton: {
     backgroundColor:'#E1F2DF',
     flex:1,
-    height: 100,
+    height: 155,
+    width: 190,
     flexDirection: 'row',
     justifyContent: 'center',
     borderWidth:1.5,
-    borderColor:'gray'
+    borderColor:'rgb(255,255,255)'
   },
 
   circleButton: {
@@ -136,8 +137,8 @@ module.exports = StyleSheet.create({
 
   // WINNER PAGE STYLINGS
   winnerImg: {
-    height: 100,
-    width: 100,
+    height: 125,
+    width: 125,
     marginBottom:30,
     borderRadius:30,
   },

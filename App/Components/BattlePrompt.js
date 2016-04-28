@@ -84,6 +84,7 @@ var promptStyles = StyleSheet.create({
   battlePromptText: {
     fontSize: 30,
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 20
   }
 })
