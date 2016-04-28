@@ -1,4 +1,3 @@
-// framework for searching for a user
 import React, {
   Component,
   StyleSheet,
@@ -8,7 +7,7 @@ import React, {
   View,
 } from 'react-native';
 
-class Profile extends Component {
+export default class Profile extends Component {
 
 	render(){
 		return(

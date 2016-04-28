@@ -11,13 +11,13 @@ import React, {
 import BackgroundGeolocation from 'react-native-background-geolocation';
 import BattlePrompt from './BattlePrompt.js';
 import Profile from './Profile.js';
+import Leaderboard from './Leaderboard.js';
 import api from '../Utils/api.js';
 import styles from '../Utils/styles.js';
 
 export default class Awaiting extends Component {
 
-  componentDidMount(){
-
+  turnOnGeolocation(){
     BackgroundGeolocation.start(function() {
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
       }, function(error) {
@@ -40,6 +40,10 @@ export default class Awaiting extends Component {
     });
   }
 
+  turnOffGeolocation(){
+    BackgroundGeolocation.stop();
+  }
+
   navToProfile(){
     this.props.navigator.push({
       component: Profile,
@@ -59,6 +63,16 @@ export default class Awaiting extends Component {
       <View style={styles.main}>
        <View style={styles.container}>
          <View style={styles.headlineContainer}>
+          <TouchableHighlight
+            style={localStyles.button}
+            onPress={this.turnOnGeolocation.bind(this)}>
+            <Text>Ready</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={localStyles.button}
+            onPress={this.turnOffGeolocation.bind(this)}>
+            <Text>Not Ready</Text>
+          </TouchableHighlight>
            <Text style={styles.headline}>
              Awaiting Challengers
            </Text>
@@ -73,11 +87,19 @@ export default class Awaiting extends Component {
 
        <View style={styles.bottomNav}>
 
-          <TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToProfile.bind(this)}>
+          <TouchableHighlight 
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToProfile.bind(this)}
+          >
             <Text style={styles.buttonText}>X</Text>
           </TouchableHighlight>
 
-          <TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToLeaderboard.bind(this)}>
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToLeaderboard.bind(this)}
+          >
             <Text style={styles.buttonText}>X</Text>
           </TouchableHighlight>
 
@@ -86,3 +108,16 @@ export default class Awaiting extends Component {
     );
   }
 }
+
+var localStyles = StyleSheet.create({
+  button: {
+    backgroundColor:'#E1F2DF',
+    flex:1,
+    height: 35,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderWidth:1.5,
+    borderColor:'gray',
+  },
+});
+
