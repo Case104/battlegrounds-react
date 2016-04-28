@@ -53,6 +53,8 @@ module.exports = StyleSheet.create({
     height: 200,
     width:200,
     borderRadius: 100,
+    borderColor: 'rgb(8,66,91)',
+    borderWidth:3
     // width: 100
   },
 

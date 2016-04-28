@@ -5,6 +5,7 @@ import React, {
   TextInput,
   TouchableHighlight,
   View,
+  Image
 } from 'react-native';
 
 import Awaiting from './Awaiting.js'
@@ -30,25 +31,33 @@ export default class Profile extends Component {
 
 	render(){
 		return(
-			<View style={styles.container}>
-				<Text>This is the profile</Text>
+			<View style={styles.main}>
+        <View style={styles.container}>
+  				<Text>This is the profile</Text>
+        </View>
+        <View style={styles.bottomNav}>
+  				 <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToAwaiting.bind(this)}
+          >
+            <Image
+                source={require('../Utils/Images/home.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+            />
+          </TouchableHighlight>
 
-				 <TouchableHighlight 
-          style={styles.squareButton}
-          underlayColor='white'
-          onPress={this.navToAwaiting.bind(this)}
-        >
-          <Text style={styles.buttonText}>Awaiting</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight 
-          style={styles.squareButton}
-          underlayColor='white'
-          onPress={this.navToLeaderboard.bind(this)}
-        >
-          <Text style={styles.buttonText}>Leaderboard</Text>
-        </TouchableHighlight>
-
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToLeaderboard.bind(this)}
+          >
+            <Image
+                source={require('../Utils/Images/leaderboard.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+            />
+          </TouchableHighlight>
+        </View>
 			</View>
 		)
 	}

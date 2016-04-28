@@ -82,9 +82,9 @@ export default class BattlePrompt extends Component {
 }
 var promptStyles = StyleSheet.create({
   battlePromptText: {
-    fontSize: 30,
+    fontSize: 23,
     color: 'white',
     fontWeight: 'bold',
-    marginBottom: 20
+    marginBottom: 10
   }
 })
