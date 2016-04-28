@@ -89,10 +89,10 @@ export default class MotionTask extends Component {
         <View style={styles.container}>
           <Text style={styles.scoreHeadline}>Your Score:</Text>
             <Text style={styles.motionScore}>{Math.floor(this.state.velocitySum)}</Text>
-            <View style={styles.bottomNav}>
-              <SquareButton/>
-              <SquareButton/>
-            </View>
+        </View>
+        <View style={styles.bottomNav}>
+          <SquareButton/>
+          <SquareButton/>
         </View>
       </View>
     )

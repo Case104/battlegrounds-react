@@ -41,8 +41,6 @@ export default class Task extends Component {
     return (
       <View style={styles.main}>
         <View style={styles.container}>
-          <View style={styles.countContainer}>
-          </View>
             <View style={styles.circleButtonContainer}>
               <TouchableHighlight
                 style={styles.circleButton}

@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-  
+
   /**
    * Loading JavaScript code - uncomment the one you want.
    *
@@ -33,9 +33,9 @@
    * `inet` value under `en0:`) and make sure your computer and iOS device are
    * on the same Wi-Fi network.
    */
-  
-  jsCodeLocation = [NSURL URLWithString:@"http://10.0.0.59:8081/index.ios.bundle?platform=ios&dev=true"];
-  
+
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+
   /**
    * OPTION 2
    * Load from pre-bundled file on disk. The static bundle is automatically
@@ -43,23 +43,23 @@
    * running the project on an actual device or running the project on the
    * simulator in the "Release" build configuration.
    */
-  
+
   //   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-  
+
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"battlegroundReact"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  
+
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  
+
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
-  
+
   return YES;
 }
 
@@ -71,13 +71,13 @@
 // add this method before @end
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  
+
   if ([[url scheme] rangeOfString:@"google"].location == NSNotFound) {
     return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
   } else {
     return [RNGoogleSignin application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
   }
-  
+
 }
 
 @end
