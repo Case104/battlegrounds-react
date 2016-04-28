@@ -39,15 +39,15 @@ export default class Winner extends Component {
 					<Image source={{uri: this.props.battle.avatar}}
 						style={styles.winnerImg} />
 				</View>
-				
+
 				<View style={styles.bottomNav}>
 
 					<TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToAwaiting.bind(this)}>
-	          <Text style={styles.buttonText}>X</Text>
+	          <Text style={styles.buttonText}>Awaiting</Text>
 	      	</TouchableHighlight>
 
 					<TouchableHighlight style={styles.squareButton} underlayColor='white' onPress={this.navToLeaderboard.bind(this)}>
-	          <Text style={styles.buttonText}>X</Text>
+	          <Text style={styles.buttonText}>Leaderboard</Text>
 	      	</TouchableHighlight>
 
       	</View>

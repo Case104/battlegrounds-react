@@ -74,7 +74,7 @@ export default class Awaiting extends Component {
             <Text>Not Ready</Text>
           </TouchableHighlight>
            <Text style={styles.headline}>
-             Awaiting Challengers
+             Awaiting Challenge...
            </Text>
          </View>
           <View style={styles.awaitingMapContainer}>
@@ -92,7 +92,7 @@ export default class Awaiting extends Component {
             underlayColor='white'
             onPress={this.navToProfile.bind(this)}
           >
-            <Text style={styles.buttonText}>X</Text>
+            <Text style={styles.buttonText}>Profile</Text>
           </TouchableHighlight>
 
           <TouchableHighlight
@@ -100,7 +100,7 @@ export default class Awaiting extends Component {
             underlayColor='white'
             onPress={this.navToLeaderboard.bind(this)}
           >
-            <Text style={styles.buttonText}>X</Text>
+            <Text style={styles.buttonText}>Leaderboard</Text>
           </TouchableHighlight>
 
         </View>
