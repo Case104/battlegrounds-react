@@ -13,10 +13,6 @@ import Leaderboard from './Leaderboard.js'
 
 export default class Winner extends Component {
 
-	componentDidMount(){
-		console.log(this.props)
-	}
-
 	navToAwaiting(){
     this.props.navigator.push({
       component: Awaiting,
