@@ -17,7 +17,7 @@ export default class BattlePrompt extends Component {
 
   handleAccept(){
     this.props.navigator.push({
-      component: MotionTask,
+      component: Task,
       passProps: {
         user: this.props.user,
         battle: this.props.battle,

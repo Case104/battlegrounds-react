@@ -1,21 +1,23 @@
 import React, {
   Component,
-  StyleSheet,
-  Text,
   Image,
   MapView,
-  View
+  StyleSheet,
+  TouchableHighlight,
+  Text,
+  View,
 } from 'react-native';
 
 import BackgroundGeolocation from 'react-native-background-geolocation';
 import BattlePrompt from './BattlePrompt.js';
+import Profile from './Profile.js';
+import Leaderboard from './Leaderboard.js';
 import api from '../Utils/api.js';
-var styles = require('../Utils/styles.js')
+import styles from '../Utils/styles.js';
 
 export default class Awaiting extends Component {
 
-  componentDidMount(){
-
+  turnOnGeolocation(){
     BackgroundGeolocation.start(function() {
       BackgroundGeolocation.getCurrentPosition({timeout: 30}, function(location) {
       }, function(error) {
@@ -38,21 +40,84 @@ export default class Awaiting extends Component {
     });
   }
 
+  turnOffGeolocation(){
+    BackgroundGeolocation.stop();
+  }
+
+  navToProfile(){
+    this.props.navigator.push({
+      component: Profile,
+      passProps: {user: this.props.user},
+    })
+  }
+
+  navToLeaderboard(){
+     this.props.navigator.push({
+      component: Leaderboard,
+      passProps: {user: this.props.user},
+    })
+  }
+
   render() {
     return (
-     <View style={styles.container}>
-       <View style={styles.headlineContainer}>
-         <Text style={styles.headline}>
-           Awaiting Challengers
-         </Text>
+      <View style={styles.main}>
+       <View style={styles.container}>
+         <View style={styles.headlineContainer}>
+          <TouchableHighlight
+            style={localStyles.button}
+            onPress={this.turnOnGeolocation.bind(this)}>
+            <Text>Ready</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={localStyles.button}
+            onPress={this.turnOffGeolocation.bind(this)}>
+            <Text>Not Ready</Text>
+          </TouchableHighlight>
+           <Text style={styles.headline}>
+             Awaiting Challenge...
+           </Text>
+         </View>
+          <View style={styles.awaitingMapContainer}>
+           <MapView style={styles.map}
+             showsUserLocation={true}
+             followsUserLocation={true}
+           />
+          </View>
        </View>
-        <View style={styles.awaitingMapContainer}>
-         <MapView style={styles.map}
-           showsUserLocation={true}
-           followsUserLocation={true}
-         />
+
+       <View style={styles.bottomNav}>
+
+          <TouchableHighlight 
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToProfile.bind(this)}
+          >
+            <Text style={styles.buttonText}>Profile</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToLeaderboard.bind(this)}
+          >
+            <Text style={styles.buttonText}>Leaderboard</Text>
+          </TouchableHighlight>
+
         </View>
-     </View>
+      </View>
     );
   }
 }
+
+var localStyles = StyleSheet.create({
+  button: {
+    backgroundColor:'#E1F2DF',
+    flex:1,
+    height: 35,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderWidth:1.5,
+    borderColor:'gray',
+  },
+});
+

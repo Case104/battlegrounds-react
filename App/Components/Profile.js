@@ -1,62 +1,54 @@
-// framework for searching for a user
 import React, {
   Component,
   StyleSheet,
   Text,
   TextInput,
   TouchableHighlight,
-  View
+  View,
 } from 'react-native';
 
-var styles = StyleSheet.create({
-	mainContainer: {
-		flex: 1,
-		padding: 30,
-		marginTop: 65,
-		flexDirection: 'column',
-		justifyContent: 'center',
-	},
-	title: {
-		fontSize: 12,
-	}
-})
+import Awaiting from './Awaiting.js'
+import Leaderboard from './Leaderboard.js'
+import styles from '../Utils/styles.js'
 
-class Profile extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			username: '',
-			isLoading: false,
-			error: false
-		}
-	}
+export default class Profile extends Component {
 
-	handleChange(event){
-		this.setState({
-			username: event.nativeEvent.text
-		});
-	}
+  navToLeaderboard(){
+    this.props.navigator.push({
+      component: Leaderboard,
+      passProps: {user: this.props.user},
+    })
+  }
 
-	handleSubmit(){
-		this.setState({
-			isLoading: true
-		});
-	}
+  navToAwaiting(){
+    this.props.navigator.push({
+      component: Awaiting,
+      passProps: {user: this.props.user},
+    })
+  }
+
 
 	render(){
 		return(
-			<View style={styles.mainContainer}>
-				<Text style={styles.title}>Search for user</Text>
-				<TextInput
-					style={styles.title}
-					value={this.state.username}
-					onChange={this.handleChange.bind(this)} />
-				<TouchableHighlight
-					style={styles.title}
-					onPress={this.handleSubmit.bind(this)}
-					underlayColor='white'>
-					<Text style={styles.title}>Search</Text>
-				</TouchableHighlight>
+			<View style={styles.container}>
+				<Text>This is the profile</Text>
+
+				 <TouchableHighlight 
+          style={styles.squareButton}
+          underlayColor='white'
+          onPress={this.navToAwaiting.bind(this)}
+        >
+          <Text style={styles.buttonText}>Awaiting</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight 
+          style={styles.squareButton}
+          underlayColor='white'
+          onPress={this.navToLeaderboard.bind(this)}
+        >
+          <Text style={styles.buttonText}>Leaderboard</Text>
+        </TouchableHighlight>
+
 			</View>
 		)
 	}
