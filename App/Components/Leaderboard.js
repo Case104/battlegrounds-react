@@ -16,7 +16,7 @@ import Profile from './Profile.js';
 export default class Leaderboard extends Component {
 
 	constructor() {
-    super(); 
+    super();
     this.state = {
       dataSource: new ListView.DataSource({
       	rowHasChanged: (row1, row2) => row1 !== row2,
@@ -54,27 +54,37 @@ export default class Leaderboard extends Component {
   	}
 
     return (
-      <View style={styles.container}>
-      	<ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderUser}
-          style={styles.listView}
-        />
-        <TouchableHighlight 
-          style={styles.squareButton}
-          underlayColor='white'
-          onPress={this.navToAwaiting.bind(this)}
-        >
-          <Text style={styles.buttonText}>Awaiting</Text>
-        </TouchableHighlight>
+      <View style={styles.main}>
+        <View style={styles.container}>
+        	<ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderUser}
+            style={styles.listView}
+          />
+        </View>
+        <View style={styles.bottomNav}>
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToAwaiting.bind(this)}
+          >
+            <Image
+                source={require('../Utils/Images/home.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+            />
+          </TouchableHighlight>
 
-        <TouchableHighlight 
-          style={styles.squareButton}
-          underlayColor='white'
-          onPress={this.navToProfile.bind(this)}
-        >
-          <Text style={styles.buttonText}>Profile</Text>
-        </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.squareButton}
+            underlayColor='white'
+            onPress={this.navToProfile.bind(this)}
+          >
+            <Image
+                source={require('../Utils/Images/profile.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+            />
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }

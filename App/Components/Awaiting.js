@@ -62,21 +62,33 @@ export default class Awaiting extends Component {
     return (
       <View style={styles.main}>
        <View style={styles.container}>
-         <View style={styles.headlineContainer}>
+         <View style={styles.bottomNav}>
           <TouchableHighlight
             style={localStyles.button}
             onPress={this.turnOnGeolocation.bind(this)}>
-            <Text>Ready</Text>
+            <Image
+                source={require('../Utils/Images/ready.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+              >
+                <Text style={localStyles.awaitingText}>Ready</Text>
+            </Image>
           </TouchableHighlight>
           <TouchableHighlight
             style={localStyles.button}
             onPress={this.turnOffGeolocation.bind(this)}>
-            <Text>Not Ready</Text>
+            <Image
+                source={require('../Utils/Images/not-ready.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+              >
+                <Text style={localStyles.awaitingText}>Not Ready</Text>
+            </Image>
           </TouchableHighlight>
+          </View>
+          <View style={styles.headlineContainer}>
            <Text style={styles.headline}>
              Awaiting Challenge...
            </Text>
-         </View>
+          </View>
           <View style={styles.awaitingMapContainer}>
            <MapView style={styles.map}
              showsUserLocation={true}
@@ -87,12 +99,15 @@ export default class Awaiting extends Component {
 
        <View style={styles.bottomNav}>
 
-          <TouchableHighlight 
+          <TouchableHighlight
             style={styles.squareButton}
             underlayColor='white'
             onPress={this.navToProfile.bind(this)}
           >
-            <Text style={styles.buttonText}>Profile</Text>
+             <Image
+                source={require('../Utils/Images/profile.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+              />
           </TouchableHighlight>
 
           <TouchableHighlight
@@ -100,7 +115,10 @@ export default class Awaiting extends Component {
             underlayColor='white'
             onPress={this.navToLeaderboard.bind(this)}
           >
-            <Text style={styles.buttonText}>Leaderboard</Text>
+             <Image
+                source={require('../Utils/Images/leaderboard.png')}
+                style={{width: null, height: null, resizeMode: 'stretch',flex:1}}
+              />
           </TouchableHighlight>
 
         </View>
@@ -111,13 +129,18 @@ export default class Awaiting extends Component {
 
 var localStyles = StyleSheet.create({
   button: {
-    backgroundColor:'#E1F2DF',
+    // backgroundColor:'#E1F2DF',
     flex:1,
-    height: 35,
+    height: 108,
+    width: 91,
     flexDirection: 'row',
     justifyContent: 'center',
-    borderWidth:1.5,
-    borderColor:'gray',
+    // borderWidth:1.5,
+    // borderColor:'gray',
   },
+  awaitingText: {
+    fontWeight: 'bold',
+    textAlign: 'center'
+  }
 });
 
