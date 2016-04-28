@@ -40,22 +40,21 @@ export default class Task extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <View style={styles.container}>
-            <View style={styles.circleButtonContainer}>
-              <TouchableHighlight
-                style={styles.circleButton}
-                onPress={this._quickDraw.bind(this)}
-                underlayColor='white'>
-                <Text style={styles.buttonText}>Click</Text>
-              </TouchableHighlight>
-            </View>
-          <View style={styles.descriptionContainer}>
+      <View style={styles.topNav}>
+        <Text style={styles.battlePromptText}>Quick Draw!</Text>
+      </View>
+        <Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
+          <View style={styles.container}>
+              <View style={styles.circleButtonContainer}>
+                <TouchableHighlight
+                  style={styles.circleButton}
+                  onPress={this._quickDraw.bind(this)}
+                  underlayColor='white'>
+                  <Text style={styles.battlePromptText}>Click</Text>
+                </TouchableHighlight>
+              </View>
           </View>
-        </View>
-        <View style={styles.bottomNav}>
-            <SquareButton/>
-            <SquareButton/>
-        </View>
+        </Image>
       </View>
     );
   }

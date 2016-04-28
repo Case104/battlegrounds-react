@@ -55,13 +55,16 @@ export default class Leaderboard extends Component {
 
     return (
       <View style={styles.main}>
-        <View style={styles.container}>
+        <View style={styles.topNav}>
+          <Text style={styles.battlePromptText}>Battle Leaders</Text>
+        </View>
+        <Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
         	<ListView
             dataSource={this.state.dataSource}
             renderRow={this.renderUser}
             style={styles.listView}
           />
-        </View>
+        </Image>
         <View style={styles.bottomNav}>
           <TouchableHighlight
             style={styles.squareButton}
@@ -107,8 +110,8 @@ export default class Leaderboard extends Component {
             style={styles.thumbnail}
           />
           <View style={styles.rightContainer}>
-            <Text style={styles.leaderboardName}>{user.email}</Text>
-            <Text style={styles.points}>{user.points}</Text>
+            <Text style={styles.battlePromptText}>{user.email}</Text>
+            <Text style={styles.battlePromptText}>{user.points}</Text>
           </View>
         </View>
     );
