@@ -13,7 +13,7 @@ import Leaderboard from './Leaderboard.js'
 import styles from '../Utils/styles.js'
 
 export default class Profile extends Component {
-  
+
   navToLeaderboard(){
     this.props.navigator.push({
       component: Leaderboard,
@@ -32,13 +32,14 @@ export default class Profile extends Component {
 	render(){
 		return(
 			<View style={styles.main}>
-        <View style={styles.container}>
+        <Image style={styles.mainBackDrop} source={require('../Utils/Images/wood-background.png')}>
           <Image
             source={{uri: this.props.user.avatar}}
+            style={styles.winnerImg}
           />
-  				<Text>{this.props.user.email}</Text>
-          <Text>{this.props.user.points}</Text>
-        </View>
+  				<Text style={styles.battlePromptText}>{this.props.user.email}</Text>
+          <Text style={styles.battlePromptText}>{this.props.user.points}</Text>
+        </Image>
         <View style={styles.bottomNav}>
   				 <TouchableHighlight
             style={styles.squareButton}
