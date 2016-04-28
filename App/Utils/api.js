@@ -44,7 +44,7 @@ module.exports = api = {
 		}
 		return fetch(url, details).then((response) => response.json());
 	},
-  
+
   postGeolocations(location, user) {
     var url = API_URL + '/geolocations'
     var details = {
@@ -61,5 +61,6 @@ module.exports = api = {
   		body: JSON.stringify(battle)
   	}
   	return fetch(url, details).then((response) => response.json());
-  }
+  },
+
 };
