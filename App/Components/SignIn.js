@@ -61,21 +61,24 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <Image source={require('../Utils/Images/battleGround.png')} style={styles.mainBackDrop}>
-        <Text style={styles.title}>
-          Battlegrounds
-        </Text>
-        <View style={styles.signInWrapper}>
-          <FBLogin 
-          permissions={["email", "user_friends", "public_profile"]}
-            onLogin={this._fb_signIn.bind(this)}
-          />
-          <GoogleSigninButton
-            style={{width: 312, height: 48}}
-            size={GoogleSigninButton.Size.Standard}
-            color={GoogleSigninButton.Color.Dark}
-            onPress={this._signIn.bind(this)}
+      <View style={styles.main}>
+        <Image source={require('../Utils/Images/battleGround.png')} style={styles.mainBackDrop}>
+          <Text style={styles.title}>
+            Battlegrounds
+          </Text>
+          <View style={styles.bottomNav}>
+            <FBLogin
+            permissions={["email", "user_friends", "public_profile"]}
+              onLogin={this._fb_signIn.bind(this)}
             />
+            <GoogleSigninButton
+              style={styles.squareButton}
+
+
+              color={GoogleSigninButton.Color.Dark}
+              onPress={this._signIn.bind(this)}
+              />
+          </View>
         </View>
       </Image>
     );

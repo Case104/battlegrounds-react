@@ -5,7 +5,10 @@ module.exports = StyleSheet.create({
 // MAIN CONTAINER STYLINGS
   main: {
     flex:1,
-    backgroundColor:'gray',
+    backgroundColor:'rgba(0,0,0,0)',
+    justifyContent: 'center',
+    // alignItems: 'center',
+
   },
   container: {
     flex: 1,
