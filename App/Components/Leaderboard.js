@@ -11,6 +11,7 @@ import React, {
 import styles from '../Utils/styles.js';
 import api from '../Utils/api.js';
 import Awaiting from './Awaiting.js';
+import Profile from './Profile.js';
 
 export default class Leaderboard extends Component {
 
@@ -33,17 +34,48 @@ export default class Leaderboard extends Component {
 		.done()
 	}
 
+  navToProfile(){
+    this.props.navigator.push({
+      component: Profile,
+      passProps: {user: this.props.user},
+    })
+  }
+
+  navToAwaiting(){
+    this.props.navigator.push({
+      component: Awaiting,
+      passProps: {user: this.props.user},
+    })
+  }
+
   render() {
   	if (!this.state.loaded){
   		return this.renderLoadingView();
   	}
 
     return (
-    	<ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderUser}
-        style={styles.listView}
-      />
+      <View style={styles.container}>
+      	<ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderUser}
+          style={styles.listView}
+        />
+        <TouchableHighlight 
+          style={styles.squareButton}
+          underlayColor='white'
+          onPress={this.navToAwaiting.bind(this)}
+        >
+          <Text style={styles.buttonText}>Awaiting</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight 
+          style={styles.squareButton}
+          underlayColor='white'
+          onPress={this.navToProfile.bind(this)}
+        >
+          <Text style={styles.buttonText}>Profile</Text>
+        </TouchableHighlight>
+      </View>
     );
   }
 
@@ -59,16 +91,16 @@ export default class Leaderboard extends Component {
 
   renderUser(user) {
     return (
-      <View style={styles.leaderboardContainer}>
-        <Image
-          source={{uri: user.avatar}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.leaderboardName}>{user.email}</Text>
-          <Text style={styles.points}>{user.points}</Text>
+        <View style={styles.leaderboardContainer}>
+          <Image
+            source={{uri: user.avatar}}
+            style={styles.thumbnail}
+          />
+          <View style={styles.rightContainer}>
+            <Text style={styles.leaderboardName}>{user.email}</Text>
+            <Text style={styles.points}>{user.points}</Text>
+          </View>
         </View>
-      </View>
     );
   }
 }
